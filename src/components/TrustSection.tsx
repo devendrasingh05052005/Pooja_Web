@@ -90,14 +90,21 @@ export default function TrustSection() {
           <div className="lg:col-span-5">
             <div className="bg-gradient-to-br from-vedic-sandstone via-amber-50 to-amber-100/60 p-6 sm:p-8 rounded-3xl border-2 border-amber-200 shadow-xl relative overflow-hidden">
               <div className="text-center pb-6 border-b border-amber-200">
-                <div className="w-20 h-20 rounded-full bg-vedic-saffron text-white flex items-center justify-center text-3xl font-bold mx-auto shadow-md mb-3">
-                  ॐ
+                <div className="w-44 h-44 sm:w-52 sm:h-52 rounded-2xl overflow-hidden mx-auto shadow-2xl border-4 border-amber-300 mb-4 group relative">
+                  <img
+                    src="/images/pandit-gopal-krishna-shastri.jpg"
+                    alt={siteConfig.name}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <div className="absolute bottom-1.5 left-1.5 right-1.5 bg-black/70 backdrop-blur-xs rounded-md py-0.5 px-1 text-[10px] text-amber-200 font-semibold truncate">
+                    पं. गोपाल कृष्ण शास्त्री - उज्जैन
+                  </div>
                 </div>
                 <h3 className="text-xl font-bold text-stone-900">
                   {siteConfig.name}
                 </h3>
                 <p className="text-xs text-amber-800 font-semibold mt-0.5">
-                  आचार्य - शुक्ल यजुर्वेद एवं फलित ज्योतिष
+                  आचार्य - शुक्ल यजुर्वेद एवं फलित ज्योतिष | वैदिक अनुष्ठान कर्ता
                 </p>
               </div>
 

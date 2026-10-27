@@ -49,6 +49,25 @@ export default function HomePage() {
                 </span>
               </h1>
 
+              {/* Pandit Ji Verified Profile Badge in Hero */}
+              <div className="flex items-center justify-center lg:justify-start gap-4 p-3.5 bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 max-w-md mx-auto lg:mx-0 shadow-lg">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-xl overflow-hidden shadow-md border-2 border-amber-300 shrink-0">
+                  <img
+                    src="/images/pandit-gopal-krishna-shastri.jpg"
+                    alt="पंडित गोपाल कृष्ण शास्त्री उज्जैन"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="text-left">
+                  <div className="font-bold text-white text-sm sm:text-base flex items-center gap-1.5">
+                    <span>पं. गोपाल कृष्ण शास्त्री</span>
+                    <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
+                  </div>
+                  <div className="text-xs text-amber-300 font-semibold">उज्जैन तीर्थ पुरोहित | वैदिक अनुष्ठान कर्ता</div>
+                  <div className="text-[11px] text-stone-300 mt-0.5">श्री महाकालेश्वर एवं मंगलनाथ धाम</div>
+                </div>
+              </div>
+
               <p className="text-stone-300 text-sm sm:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0">
                 {t.heroDesc}
               </p>

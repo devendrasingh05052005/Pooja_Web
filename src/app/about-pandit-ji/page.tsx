@@ -28,9 +28,14 @@ export default function AboutPage() {
         {/* Profile Hero Card */}
         <div className="bg-white rounded-3xl p-6 sm:p-10 shadow-md border border-amber-200">
           <div className="flex flex-col md:flex-row items-center gap-8">
-            <div className="w-36 h-36 sm:w-44 sm:h-44 rounded-full bg-gradient-to-tr from-vedic-saffron to-amber-400 p-1.5 shadow-xl shrink-0">
-              <div className="w-full h-full rounded-full bg-white flex items-center justify-center text-5xl font-extrabold text-vedic-saffron border-4 border-amber-100">
-                ॐ
+            <div className="w-48 h-48 sm:w-64 sm:h-64 rounded-3xl overflow-hidden shadow-2xl border-4 border-amber-300 shrink-0 relative group">
+              <img
+                src="/images/pandit-gopal-krishna-shastri.jpg"
+                alt={siteConfig.name}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+              <div className="absolute bottom-2 left-2 right-2 bg-black/60 backdrop-blur-xs rounded-lg py-1 px-2 text-center text-[10px] text-amber-200 font-semibold">
+                पं. गोपाल कृष्ण शास्त्री - उज्जैन
               </div>
             </div>
 
@@ -106,6 +111,23 @@ export default function AboutPage() {
           <blockquote className="mt-3 text-stone-300 text-sm sm:text-base italic leading-relaxed">
             "उज्जैन तीर्थ में पूजा केवल एक क्रिया नहीं, बल्कि महाकाल और मंगल देव के चरणों में आत्म-समर्पण है। जब तक विधि, मंत्र और भाव शुद्ध न हों, तब तक फल की प्राप्ति नहीं होती। मेरा यही प्रयास रहता है कि उज्जैन आने वाले अथवा दूर से जुड़ने वाले प्रत्येक भक्त को शास्त्रीय समाधान और मानसिक शांति मिले।"
           </blockquote>
+        </div>
+
+        {/* Photo Spotlight */}
+        <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-md border border-amber-200 text-center space-y-4">
+          <div className="max-w-2xl mx-auto rounded-2xl overflow-hidden shadow-2xl border-4 border-amber-300">
+            <img
+              src="/images/pandit-gopal-krishna-shastri.jpg"
+              alt="पंडित गोपाल कृष्ण शास्त्री उज्जैन - वैदिक अनुष्ठान कर्ता"
+              className="w-full h-auto object-cover"
+            />
+          </div>
+          <div className="text-sm font-bold text-stone-800">
+            पं. गोपाल कृष्ण शास्त्री - उज्जैन (वैदिक अनुष्ठान कर्ता)
+          </div>
+          <p className="text-xs text-stone-500 max-w-xl mx-auto">
+            श्री महाकालेश्वर ज्योतिर्लिंग एवं मंगलनाथ तीर्थ के पावन सानिध्य में 18+ वर्षों से निरंतर शास्त्रोक्त वैदिक अनुष्ठान संपन्न।
+          </p>
         </div>
 
         {/* Booking Form Integration */}
