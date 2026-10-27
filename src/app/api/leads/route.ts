@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import fs from "fs";
 import path from "path";
-import { siteConfig } from "@/config/site";
+import { siteConfig, getCleanWhatsappNumber } from "@/config/site";
 
 export interface BookingLead {
   id: string;
@@ -82,16 +82,17 @@ export async function POST(request: Request) {
 
     const rawMessage = `🙏 *जय श्री महाकाल पंडित जी!*
 मेरा नाम *${newLead.name}* है।
+📞 *मोबाइल:* ${newLead.phone}
 📍 *शहर:* ${newLead.city}
 🔱 *पूजन:* ${newLead.poojaName}
 📅 *अनुमानित तिथि:* ${newLead.preferredDate}
 🕉️ *गोत्र:* ${newLead.gotra}
 🚩 *पूजा का माध्यम:* ${modeText}
-${newLead.notes ? `📝 *अन्य विवरण:* ${newLead.notes}` : ""}
-
+${newLead.notes ? `📝 *अन्य विवरण:* ${newLead.notes}\n` : ""}
 कृपया मुझे शुभ मुहूर्त, विधि और व्यवस्था की जानकारी प्रदान करने की कृपा करें।`;
 
-    const whatsappUrl = `https://wa.me/${siteConfig.contact.whatsappNumber}?text=${encodeURIComponent(rawMessage)}`;
+    const targetNumber = getCleanWhatsappNumber(siteConfig.contact.whatsappNumber);
+    const whatsappUrl = `https://wa.me/${targetNumber}?text=${encodeURIComponent(rawMessage)}`;
 
     return NextResponse.json({
       success: true,

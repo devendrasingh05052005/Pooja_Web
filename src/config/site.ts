@@ -8,10 +8,10 @@ export const siteConfig = {
   ogImage: "/images/og-image.jpg",
   contact: {
     // Pandit Gopal Krishna Shastri Ji's official contact number
-    whatsappNumber: "918120519645",
-    callNumber: "+91-8120519645",
-    whatsappDisplay: "+91 81205 19645",
-    callDisplay: "+91 81205 19645",
+    whatsappNumber: "918719966101",
+    callNumber: "+91-8719966101",
+    whatsappDisplay: "+91 87199 66101",
+    callDisplay: "+91 87199 66101",
     email: "contact@panditgopalshastriujjain.com",
     address: {
       line1: "निकट श्री महाकालेश्वर मंदिर एवं मंगलनाथ मंदिर रोड",
@@ -38,3 +38,12 @@ export const siteConfig = {
 };
 
 export type SiteConfig = typeof siteConfig;
+
+export const getCleanWhatsappNumber = (rawNumber?: string): string => {
+  const num = rawNumber || siteConfig.contact.whatsappNumber;
+  const digits = num.replace(/[^0-9]/g, "");
+  if (digits.length === 10) {
+    return "91" + digits;
+  }
+  return digits;
+};

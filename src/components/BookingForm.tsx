@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { servicesData } from "@/data/services";
-import { siteConfig } from "@/config/site";
+import { siteConfig, getCleanWhatsappNumber } from "@/config/site";
 import { Send, Phone, MessageCircle, Calendar, User, MapPin, Sparkles, CheckCircle2 } from "lucide-react";
 
 interface BookingFormProps {
@@ -38,32 +38,58 @@ export default function BookingForm({ defaultPooja = "", source = "homepage" }: 
     setLoading(true);
     setErrorMsg("");
 
+    if (!formData.name.trim() || !formData.phone.trim()) {
+      setErrorMsg("कृपया यजमान का नाम और मोबाइल नंबर अवश्य दर्ज करें।");
+      setLoading(false);
+      return;
+    }
+
+    // Format WhatsApp message with complete slot booking data
+    const modeText =
+      formData.serviceMode === "online-sankalp"
+        ? "घर बैठे ऑनलाइन संकल्प पूजा (E-Pooja)"
+        : "उज्जैन आकर प्रत्यक्ष पूजन (In-Person)";
+
+    const rawMessage = `🙏 *जय श्री महाकाल पंडित जी!*
+मेरा नाम *${formData.name.trim()}* है।
+📞 *मोबाइल:* ${formData.phone.trim()}
+📍 *शहर:* ${formData.city.trim() || "Not specified"}
+🔱 *पूजन:* ${formData.poojaName.trim()}
+📅 *अनुमानित तिथि:* ${formData.preferredDate || "यथाशीघ्र शुभ मुहूर्त"}
+🕉️ *गोत्र:* ${formData.gotra ? formData.gotra.trim() : "कश्यप / ज्ञात नहीं"}
+🚩 *पूजा का माध्यम:* ${modeText}
+${formData.notes ? `📝 *अन्य विवरण:* ${formData.notes.trim()}\n` : ""}
+कृपया मुझे शुभ मुहूर्त, विधि और व्यवस्था की जानकारी प्रदान करने की कृपा करें।`;
+
+    const targetNumber = getCleanWhatsappNumber(siteConfig.contact.whatsappNumber);
+    const whatsappUrl = `https://wa.me/${targetNumber}?text=${encodeURIComponent(rawMessage)}`;
+
+    // Set success data for UI state
+    setSuccessData({
+      whatsappUrl,
+      message: "आपकी बुकिंग जानकारी तैयार हो गई है एवं पंडित जी के WhatsApp पर भेजी जा रही है।",
+    });
+
+    // Save lead to database / leads.json in background (keepalive ensures delivery even during navigation)
     try {
-      const res = await fetch("/api/leads", {
+      fetch("/api/leads", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ ...formData, source }),
-      });
-
-      const data = await res.json();
-      if (data.success) {
-        setSuccessData({
-          whatsappUrl: data.whatsappUrl,
-          message: data.message,
-        });
-
-        // Open WhatsApp automatically in a new tab if available
-        if (data.whatsappUrl) {
-          window.open(data.whatsappUrl, "_blank");
-        }
-      } else {
-        setErrorMsg(data.error || "कृपया सभी आवश्यक जानकारी सही से भरें।");
-      }
+        keepalive: true,
+      }).catch((err) => console.error("Lead saving error:", err));
     } catch (err) {
-      console.error(err);
-      setErrorMsg("नेटवर्क त्रुटि। कृपया सीधे फोन अथवा WhatsApp पर संपर्क करें।");
-    } finally {
-      setLoading(false);
+      console.error("Fetch leads error:", err);
+    }
+
+    setLoading(false);
+
+    // Directly open WhatsApp with pre-filled booking details
+    // window.location.href triggers native WhatsApp app on Android / iOS and web.whatsapp.com on desktop without popup blocking
+    try {
+      window.location.href = whatsappUrl;
+    } catch (e) {
+      console.error("Navigation error:", e);
     }
   };
 
@@ -92,10 +118,10 @@ export default function BookingForm({ defaultPooja = "", source = "homepage" }: 
 
             <div>
               <h4 className="text-xl font-bold text-stone-900">
-                आपकी पूजा का विवरण प्राप्त हो गया है!
+                आपकी पूजा का विवरण WhatsApp पर प्रेषित किया जा रहा है!
               </h4>
               <p className="text-stone-600 text-sm mt-1 max-w-md mx-auto">
-                पंडित गोपाल कृष्ण शास्त्री जी जल्द ही आपसे संपर्क करेंगे। आप तुरंत WhatsApp पर भी सीधे बात कर सकते हैं:
+                यदि WhatsApp स्वतः नहीं खुला, तो कृपया नीचे दिए गए हरे बटन पर क्लिक करके पंडित गोपाल कृष्ण शास्त्री जी को संदेश भेजें:
               </p>
             </div>
 
@@ -105,16 +131,16 @@ export default function BookingForm({ defaultPooja = "", source = "homepage" }: 
                   href={successData.whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-[#25D366] hover:bg-emerald-600 text-white font-bold py-3 px-6 rounded-xl shadow flex items-center justify-center gap-2 text-sm transition"
+                  className="bg-[#25D366] hover:bg-emerald-600 text-white font-bold py-3.5 px-6 rounded-xl shadow-lg flex items-center justify-center gap-2 text-sm transition transform hover:scale-[1.02]"
                 >
                   <MessageCircle className="w-5 h-5" />
-                  <span>पंडित जी से WhatsApp पर बात करें</span>
+                  <span>पंडित जी से WhatsApp पर तुरंत चैट खोलें</span>
                 </a>
               )}
 
               <a
                 href={`tel:${siteConfig.contact.callNumber}`}
-                className="bg-stone-800 hover:bg-stone-900 text-white font-bold py-3 px-6 rounded-xl shadow flex items-center justify-center gap-2 text-sm transition"
+                className="bg-stone-800 hover:bg-stone-900 text-white font-bold py-3.5 px-6 rounded-xl shadow flex items-center justify-center gap-2 text-sm transition"
               >
                 <Phone className="w-5 h-5" />
                 <span>सीधे फोन पर बात करें</span>
