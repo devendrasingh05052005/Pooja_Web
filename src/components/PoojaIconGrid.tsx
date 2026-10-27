@@ -63,7 +63,7 @@ export default function PoojaIconGrid() {
           </div>
 
           <h2 className="text-2xl sm:text-4xl font-extrabold text-stone-900 tracking-tight">
-            पंडित गोपाल शास्त्री जी द्वारा <span className="text-vedic-saffron">{t.servicesSectionTitle}</span>
+            पंडित गोपाल कृष्ण शास्त्री जी द्वारा <span className="text-vedic-saffron">{t.servicesSectionTitle}</span>
           </h2>
 
           <p className="mt-3 text-stone-600 text-sm sm:text-base leading-relaxed">
@@ -153,7 +153,7 @@ export default function PoojaIconGrid() {
               सभी पूजन वैदिक पद्धति एवं शास्त्रसम्मत मंत्रोच्चार द्वारा
             </h3>
             <p className="text-stone-300 text-xs sm:text-sm max-w-2xl">
-              पंडित गोपाल शास्त्री जी द्वारा किसी भी प्रकार का आडंबर या छिपा हुआ शुल्क नहीं लिया जाता। संपूर्ण पूजा यजमान के नाम, गोत्र और नक्षत्र के अनुसार प्रामाणिक विधि से संपन्न कराई जाती है।
+              पंडित गोपाल कृष्ण शास्त्री जी द्वारा किसी भी प्रकार का आडंबर या छिपा हुआ शुल्क नहीं लिया जाता। संपूर्ण पूजा यजमान के नाम, गोत्र और नक्षत्र के अनुसार प्रामाणिक विधि से संपन्न कराई जाती है।
             </p>
           </div>
 

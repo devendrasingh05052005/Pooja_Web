@@ -13,6 +13,9 @@ export default function LanguageSelector() {
         <div className="flex items-center gap-2 text-stone-800 font-bold text-xs sm:text-sm shrink-0">
           <Globe className="w-4 h-4 text-vedic-saffron shrink-0" />
           <span>{t.selectLanguageHint}</span>
+          <span className="hidden md:inline-block bg-amber-200/80 text-amber-900 text-[10px] font-semibold px-2 py-0.5 rounded-full">
+            संपूर्ण वेबसाइट अनुवाद
+          </span>
         </div>
 
         {/* Horizontal Scrollable Language Pills for Top 10 Indian Languages */}

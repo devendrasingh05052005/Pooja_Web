@@ -71,7 +71,7 @@ export default function UjjainTirthInfo() {
               </div>
 
               <div className="mt-5 pt-4 border-t border-amber-50 flex items-center justify-between text-xs">
-                <span className="text-stone-500 font-medium">पंडित गोपाल शास्त्री जी द्वारा संचालित</span>
+                <span className="text-stone-500 font-medium">पंडित गोपाल कृष्ण शास्त्री जी द्वारा संचालित</span>
                 <a
                   href="#book"
                   className="font-bold text-vedic-saffron hover:text-amber-700 underline"

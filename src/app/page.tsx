@@ -7,7 +7,6 @@ import TrustSection from "@/components/TrustSection";
 import BookingForm from "@/components/BookingForm";
 import UjjainTirthInfo from "@/components/UjjainTirthInfo";
 import FaqSection from "@/components/FaqSection";
-import LanguageSelector from "@/components/LanguageSelector";
 import { useLanguage } from "@/context/LanguageContext";
 import {
   ShieldCheck,
@@ -29,9 +28,6 @@ export default function HomePage() {
 
   return (
     <div>
-      {/* Top Language Select Bar for Top 10 Indian Languages */}
-      <LanguageSelector />
-
       {/* Hero Section */}
       <section className="relative bg-gradient-to-b from-amber-900 via-vedic-maroon to-stone-950 text-white pt-10 pb-20 sm:pt-14 sm:pb-28 overflow-hidden">
         {/* Subtle decorative background pattern */}

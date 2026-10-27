@@ -79,7 +79,7 @@ export default function BookingForm({ defaultPooja = "", source = "homepage" }: 
           शुभ मुहूर्त एवं पूजन स्लॉट निर्धारण
         </h3>
         <p className="text-stone-200 text-xs sm:text-sm mt-1 max-w-lg mx-auto">
-          पंडित गोपाल शास्त्री जी से सीधे बात कर अपनी जन्म कुंडली अनुसार श्रेष्ठ मुहूर्त एवं पूजन व्यवस्था तय करें।
+          पंडित गोपाल कृष्ण शास्त्री जी से सीधे बात कर अपनी जन्म कुंडली अनुसार श्रेष्ठ मुहूर्त एवं पूजन व्यवस्था तय करें।
         </p>
       </div>
 
@@ -95,7 +95,7 @@ export default function BookingForm({ defaultPooja = "", source = "homepage" }: 
                 आपकी पूजा का विवरण प्राप्त हो गया है!
               </h4>
               <p className="text-stone-600 text-sm mt-1 max-w-md mx-auto">
-                पंडित गोपाल शास्त्री जी जल्द ही आपसे संपर्क करेंगे। आप तुरंत WhatsApp पर भी सीधे बात कर सकते हैं:
+                पंडित गोपाल कृष्ण शास्त्री जी जल्द ही आपसे संपर्क करेंगे। आप तुरंत WhatsApp पर भी सीधे बात कर सकते हैं:
               </p>
             </div>
 

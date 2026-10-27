@@ -172,7 +172,7 @@ export default function ServicePage({ params }: Props) {
 
             <span className="flex items-center gap-1.5 bg-white/10 px-3.5 py-1.5 rounded-lg border border-white/10">
               <ShieldCheck className="w-4 h-4 text-emerald-400" />
-              पंडित गोपाल शास्त्री जी द्वारा संचालित
+              पंडित गोपाल कृष्ण शास्त्री जी द्वारा संचालित
             </span>
           </div>
         </div>
@@ -294,7 +294,7 @@ export default function ServicePage({ params }: Props) {
               {/* Direct Quick WhatsApp / Call Box */}
               <div className="mt-6 bg-gradient-to-br from-amber-100 via-amber-50 to-white p-6 rounded-3xl border border-amber-300 shadow-sm text-center space-y-3">
                 <div className="font-bold text-stone-900 text-base">
-                  सीधे पंडित गोपाल शास्त्री जी से बात करें
+                  सीधे पंडित गोपाल कृष्ण शास्त्री जी से बात करें
                 </div>
                 <p className="text-xs text-stone-600">
                   कुंडली में {service.titleHindi} का प्रभाव जानने एवं शुभ मुहूर्त पूछने हेतु कॉल अथवा WhatsApp करें:

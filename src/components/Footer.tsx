@@ -42,7 +42,7 @@ export default function Footer() {
                 className="inline-flex items-center gap-2 text-xs font-semibold text-amber-300 hover:text-white transition"
               >
                 <Instagram className="w-4 h-4 text-pink-400" />
-                <span>Instagram Profile: @panditgopalshastri_ujjain</span>
+                <span>Instagram Profile: @panditgopalkrishnashastri_ujjain</span>
               </a>
             </div>
           </div>

@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
 import { siteConfig } from "@/config/site";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FloatingCTA from "@/components/FloatingCTA";
+import LanguageSelector from "@/components/LanguageSelector";
 import { LanguageProvider } from "@/context/LanguageContext";
 
 export const metadata: Metadata = {
@@ -25,7 +27,8 @@ export const metadata: Metadata = {
     "कुंभ विवाह पूजा उज्जैन",
     "अर्क विवाह उज्जैन",
     "रुद्राभिषेक उज्जैन",
-    "Pandit Gopal Shastri Ujjain",
+    "Pandit Gopal Krishna Shastri Ujjain",
+    "पंडित गोपाल कृष्ण शास्त्री उज्जैन",
     "Online Pooja Booking Ujjain"
   ],
   authors: [{ name: siteConfig.englishName, url: siteConfig.url }],
@@ -72,8 +75,8 @@ export default function RootLayout({
       {
         "@type": "Person",
         "@id": `${siteConfig.url}/#pandit`,
-        name: "Pandit Gopal Shastri",
-        alternateName: "पंडित गोपाल शास्त्री",
+        name: "Pandit Gopal Krishna Shastri",
+        alternateName: "पंडित गोपाल कृष्ण शास्त्री",
         jobTitle: "Vedic Priest & Astrologer (तीर्थ पुरोहित)",
         description: "18+ years experienced Vedic priest conducting Kaal Sarp, Mangal Dosh Bhat Puja, Mahamrityunjay Jaap in Ujjain.",
         address: {
@@ -136,7 +139,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="hi">
+    <html lang="hi" className="notranslate-custom">
       <head>
         <script
           type="application/ld+json"
@@ -145,7 +148,32 @@ export default function RootLayout({
       </head>
       <body className="min-h-screen flex flex-col bg-stone-50 text-stone-900">
         <LanguageProvider>
+          {/* Hidden Google Translate Element for site-wide auto-translation */}
+          <div id="google_translate_element" className="hidden" aria-hidden="true" />
+          <Script
+            id="google-translate-init"
+            strategy="afterInteractive"
+            dangerouslySetInnerHTML={{
+              __html: `
+                function googleTranslateElementInit() {
+                  new window.google.translate.TranslateElement({
+                    pageLanguage: 'hi',
+                    includedLanguages: 'hi,en,mr,gu,te,ta,bn,kn,ml,pa',
+                    autoDisplay: false
+                  }, 'google_translate_element');
+                }
+              `,
+            }}
+          />
+          <Script
+            id="google-translate-script"
+            src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+            strategy="afterInteractive"
+          />
+
           <Navbar />
+          {/* Universal Language Selector Bar on ALL Pages */}
+          <LanguageSelector />
           <main className="flex-1">{children}</main>
           <Footer />
           <FloatingCTA />

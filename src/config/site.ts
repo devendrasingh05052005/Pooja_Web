@@ -1,13 +1,13 @@
 export const siteConfig = {
-  name: "पंडित गोपाल शास्त्री - उज्जैन तीर्थ पुरोहित",
-  englishName: "Pandit Gopal Shastri - Ujjain Vedic Purohit",
-  title: "पंडित गोपाल शास्त्री | उज्जैन में कालसर्प, मंगल दोष एवं समस्त वैदिक पूजन",
+  name: "पंडित गोपाल कृष्ण शास्त्री - उज्जैन",
+  englishName: "Pandit Gopal Krishna Shastri - Ujjain",
+  title: "पंडित गोपाल कृष्ण शास्त्री | उज्जैन में कालसर्प, मंगल दोष एवं समस्त वैदिक पूजन",
   description:
-    "उज्जैन के सुप्रसिद्ध वैदिक पुरोहित पंडित गोपाल शास्त्री जी द्वारा कालसर्प दोष निवारण, मंगल भात पूजा (मंगलनाथ), महामृत्युंजय जाप, कुंभ-अर्क विवाह एवं वैदिक अनुष्ठान। उज्जैन आकर या घर बैठे ऑनलाइन संकल्प पूजा की सुविधा।",
+    "उज्जैन के सुप्रसिद्ध वैदिक पुरोहित पंडित गोपाल कृष्ण शास्त्री जी द्वारा कालसर्प दोष निवारण, मंगल भात पूजा (मंगलनाथ), महामृत्युंजय जाप, कुंभ-अर्क विवाह एवं वैदिक अनुष्ठान। उज्जैन आकर या घर बैठे ऑनलाइन संकल्प पूजा की सुविधा।",
   url: "https://www.panditgopalshastriujjain.com",
   ogImage: "/images/og-image.jpg",
   contact: {
-    // Pandit Gopal Shastri Ji's official contact number
+    // Pandit Gopal Krishna Shastri Ji's official contact number
     whatsappNumber: "918120519645",
     callNumber: "+91-8120519645",
     whatsappDisplay: "+91 81205 19645",
@@ -20,7 +20,7 @@ export const siteConfig = {
       pincode: "456001",
       country: "India",
     },
-    instagramUrl: "https://instagram.com/panditgopalshastri_ujjain",
+    instagramUrl: "https://instagram.com/panditgopalkrishnashastri_ujjain",
     preWrittenMessages: {
       general:
         "जय श्री महाकाल पंडित जी! मुझे उज्जैन में पूजा (कालसर्प / मंगल भात पूजा / महामृत्युंजय जाप) और शुभ मुहूर्त के बारे में जानकारी चाहिए।",

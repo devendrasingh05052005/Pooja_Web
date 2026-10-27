@@ -228,7 +228,7 @@ export default function AdminPage() {
 
                     <a
                       href={`https://wa.me/91${lead.phone.replace(/[^0-9]/g, "")}?text=${encodeURIComponent(
-                        `जय श्री महाकाल ${lead.name} जी! मैं पंडित गोपाल शास्त्री उज्जैन से बोल रहा हूँ। आपने ${lead.poojaName} के लिए पूछताछ की थी।`
+                        `जय श्री महाकाल ${lead.name} जी! मैं पंडित गोपाल कृष्ण शास्त्री उज्जैन से बोल रहा हूँ। आपने ${lead.poojaName} के लिए पूछताछ की थी।`
                       )}`}
                       target="_blank"
                       rel="noopener noreferrer"
