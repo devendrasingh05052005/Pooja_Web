@@ -105,7 +105,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 10 Services Grid (Icons Touch to Open) */}
+      {/* All Vedic Services Grid (Icons Touch to Open) */}
       <PoojaIconGrid />
 
       {/* Trust & Authority of Pandit Gopal Shastri */}

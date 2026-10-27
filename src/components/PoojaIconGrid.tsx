@@ -14,6 +14,8 @@ import {
   Droplets,
   BookOpen,
   Flower2,
+  Coins,
+  Moon,
   ChevronRight,
   MapPin,
   Clock,
@@ -41,6 +43,10 @@ const getServiceIcon = (iconName: string) => {
       return <Droplets className="w-8 h-8 text-sky-600" />;
     case "BookOpen":
       return <BookOpen className="w-8 h-8 text-purple-600" />;
+    case "Coins":
+      return <Coins className="w-8 h-8 text-amber-500" />;
+    case "Moon":
+      return <Moon className="w-8 h-8 text-sky-500" />;
     case "Flower2":
     default:
       return <Flower2 className="w-8 h-8 text-rose-600" />;

@@ -171,7 +171,7 @@ export default function Navbar() {
 
             <div className="border-t border-b border-amber-50 py-2">
               <span className="text-xs font-bold text-amber-800 px-3 uppercase tracking-wider">
-                सभी 10 प्रमुख पूजाएं (Touch to Open)
+                सभी प्रमुख वैदिक पूजाएं (Touch to Open)
               </span>
               <div className="mt-1 flex flex-col gap-1 pl-2">
                 {servicesData.map((service) => (

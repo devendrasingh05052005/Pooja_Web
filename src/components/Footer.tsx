@@ -42,7 +42,7 @@ export default function Footer() {
                 className="inline-flex items-center gap-2 text-xs font-semibold text-amber-300 hover:text-white transition"
               >
                 <Instagram className="w-4 h-4 text-pink-400" />
-                <span>Instagram Profile: @panditgopalkrishnashastri_ujjain</span>
+                <span>Instagram Profile: @__pandit_gopal_shastri_ujjain</span>
               </a>
             </div>
           </div>
@@ -50,7 +50,7 @@ export default function Footer() {
           {/* All 10 Pooja Links - SEO Silo (Col 5-8) */}
           <div className="lg:col-span-5 space-y-3">
             <h4 className="text-sm font-bold text-amber-400 uppercase tracking-wider border-b border-stone-800 pb-2">
-              उज्जैन वैदिक पूजन सेवाएं (All 10 Services)
+              उज्जैन वैदिक पूजन सेवाएं (All Major Services)
             </h4>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2 text-xs">

@@ -20,7 +20,7 @@ export const siteConfig = {
       pincode: "456001",
       country: "India",
     },
-    instagramUrl: "https://instagram.com/panditgopalkrishnashastri_ujjain",
+    instagramUrl: "https://www.instagram.com/__pandit_gopal_shastri_ujjain?xtok=MTh1OGM3eDltNWprNQ==",
     preWrittenMessages: {
       general:
         "जय श्री महाकाल पंडित जी! मुझे उज्जैन में पूजा (कालसर्प / मंगल भात पूजा / महामृत्युंजय जाप) और शुभ मुहूर्त के बारे में जानकारी चाहिए।",
