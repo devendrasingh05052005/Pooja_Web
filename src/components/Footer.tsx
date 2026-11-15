@@ -26,12 +26,21 @@ export default function Footer() {
             </div>
 
             <p className="text-stone-400 text-xs sm:text-sm leading-relaxed">
-              उज्जैन (अवंतिका नगरी) के प्रतिष्ठित तीर्थ पुरोहित। कालसर्प दोष निवारण, मंगल भात पूजा, महामृत्युंजय जाप, कुंभ विवाह, अर्क विवाह एवं समस्त वैदिक अनुष्ठान 100% शास्त्रीय पद्धति से संपन्न कराए जाते हैं।
+              उज्जैन (अवंतिका नगरी) के प्रतिष्ठित वैदिक विद्वान एवं पुरोहित। कालसर्प दोष निवारण, मंगल भात पूजा, महामृत्युंजय जाप, कुंभ विवाह, अर्क विवाह एवं समस्त वैदिक अनुष्ठान 100% शास्त्रीय पद्धति से संपन्न कराए जाते हैं।
             </p>
 
             <div className="flex items-center gap-2 text-xs text-emerald-400 font-semibold bg-white/5 p-2.5 rounded-lg border border-white/10">
               <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
               <span>प्रमाणित वैदिक पुरोहित | 18+ वर्ष का अनुभव</span>
+            </div>
+
+            <div className="pt-1">
+              <Link
+                href="/baglamukhi-vishesh-anushthan"
+                className="inline-flex items-center gap-2 text-xs font-bold text-yellow-300 hover:text-white bg-yellow-900/40 border border-yellow-500/50 px-3 py-1.5 rounded-lg transition"
+              >
+                <span>⭐ मां बगलामुखी विशेष अनुष्ठान (Dedicated Page)</span>
+              </Link>
             </div>
 
             <div className="pt-1">

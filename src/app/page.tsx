@@ -63,7 +63,7 @@ export default function HomePage() {
                     <span>पं. गोपाल कृष्ण शास्त्री</span>
                     <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
                   </div>
-                  <div className="text-xs text-amber-300 font-semibold">उज्जैन तीर्थ पुरोहित | वैदिक अनुष्ठान कर्ता</div>
+                  <div className="text-xs text-amber-300 font-semibold">उज्जैन | वैदिक पुरोहित एवं अनुष्ठान कर्ता</div>
                   <div className="text-[11px] text-stone-300 mt-0.5">श्री महाकालेश्वर एवं मंगलनाथ धाम</div>
                 </div>
               </div>

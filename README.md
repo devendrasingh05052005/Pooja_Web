@@ -1,9 +1,9 @@
-# पंडित गोपाल कृष्ण शास्त्री - उज्जैन तीर्थ पुरोहित
+# पंडित गोपाल कृष्ण शास्त्री - उज्जैन
 ### (Pandit Gopal Krishna Shastri - Ujjain Vedic Pooja Booking Platform)
 
 > **Live Repository:** [https://github.com/devendrasingh05052005/Pooja_Web](https://github.com/devendrasingh05052005/Pooja_Web)  
 > **Official Instagram:** [@__pandit_gopal_shastri_ujjain](https://www.instagram.com/__pandit_gopal_shastri_ujjain?xtok=MTh1OGM3eDltNWprNQ==)  
-> **Contact & WhatsApp:** +91 81205 19645
+> **Contact & WhatsApp:** +91 87199 66101
 
 ---
 
@@ -15,20 +15,24 @@
 
 ## ✨ Key Features (मुख्य विशेषताएं)
 
-1. **13 Dedicated Vedic Pooja Landing Pages:**
+1. **17 Dedicated Vedic Pooja Services & Dedicated Pages:**
    - कालसर्प योग / कालसर्प दोष निवारण पूजा (`/services/kaal-sarp-dosh-puja-ujjain`)
    - मंगल पूजन / भात पूजा - मंगलनाथ तीर्थ (`/services/mangal-dosh-puja-ujjain`)
    - महामृत्युंजय मंत्र जाप एवं अनुष्ठान (`/services/mahamrityunjay-jaap-ujjain`)
    - अर्क विवाह पूजन - पुरुषों हेतु (`/services/ark-vivah-puja-ujjain`)
    - कुंभ विवाह पूजन - कन्याओं हेतु (`/services/kumbh-vivah-puja-ujjain`)
-   - नवचंडी पाठ एवं महायज्ञ अनुष्ठान (`/services/navchandi-path-ujjain`)
+   - नवचंडी पाठ एवं महायज्ञ अनुष्ठान (`/services/navchandi-path-havan-ujjain`)
    - नवग्रह शांति पूजा / पूजन (`/services/navgrah-shanti-puja-ujjain`)
    - रुद्राभिषेक पूजन - महाकाल नगरी (`/services/rudrabhishek-puja-ujjain`)
-   - जन्म कुंडली विश्लेषण एवं वैदिक समाधान (`/services/kundali-dosh-samadhan`)
-   - पितृ दोष निवारण एवं नारायण बलि पूजन (`/services/pitra-dosh-narayan-bali`)
-   - **ऋण मुक्ति पूजन / भौम ऋणमोचक पूजा** (`/services/rin-mukti-puja-ujjain`)
-   - **सूर्य ग्रहण दोष शांति पूजन** (`/services/surya-grahan-dosh-puja-ujjain`)
-   - **चंद्र ग्रहण दोष शांति पूजन** (`/services/chandra-grahan-dosh-puja-ujjain`)
+   - जन्म कुंडली विश्लेषण एवं वैदिक समाधान (`/services/kundali-dosh-shanti-ujjain`)
+   - पितृ दोष निवारण एवं नारायण बलि पूजन (`/services/pitra-dosh-puja-ujjain`)
+   - ऋण मुक्ति पूजन / भौम ऋणमोचक पूजा (`/services/rin-mukti-puja-ujjain`)
+   - सूर्य ग्रहण दोष शांति पूजन (`/services/surya-grahan-dosh-puja-ujjain`)
+   - चंद्र ग्रहण दोष शांति पूजन (`/services/chandra-grahan-dosh-puja-ujjain`)
+   - **वास्तु शांति पूजन एवं गृह प्रवेश दोष निवारण** (`/services/vastu-shanti-puja-ujjain`)
+   - **श्री सत्यनारायण व्रत कथा एवं हवन पूजन** (`/services/satyanarayan-katha-ujjain`)
+   - **मूल नक्षत्र (गंडमूल) शांति पूजन** (`/services/mool-nakshatra-shanti-puja-ujjain`)
+   - **⭐ मां बगलामुखी विशेष अनुष्ठान (Dedicated Landing Page)** (`/baglamukhi-vishesh-anushthan`)
 
 2. **10 Indian Languages Full-Website Translation:**
    - हिन्दी (Hindi), English, मराठी (Marathi), ગુજરાતી (Gujarati), తెలుగు (Telugu), தமிழ் (Tamil), বাংলা (Bengali), ಕನ್ನಡ (Kannada), മലയാളം (Malayalam), ਪੰਜਾਬੀ (Punjabi).
@@ -36,7 +40,7 @@
 
 3. **Zero-Friction WhatsApp & Lead Automation:**
    - 30-सेकंड बुकिंग फॉर्म: यजमान का नाम, फोन, शहर, गोत्र, इच्छित तिथि, पूजन का माध्यम (प्रत्यक्ष vs ई-पूजा)।
-   - फॉर्म सबमिट होते ही पंडित जी के नंबर (`+91 81205 19645`) पर संपूर्ण विवरण के साथ प्री-फॉर्मेटेड WhatsApp संदेश स्वतः खुल जाता है।
+   - फॉर्म सबमिट होते ही पंडित जी के नंबर (`+91 87199 66101`) पर संपूर्ण विवरण के साथ प्री-फॉर्मेटेड WhatsApp संदेश स्वतः खुल जाता है।
    - सभी लीड्स बैकएंड डेटाबेस (`/data/leads.json`) में सुरक्षित सेव होती हैं।
 
 4. **Pandit Ji Admin Dashboard (`/admin`):**
@@ -80,8 +84,8 @@ Server runs on: `http://localhost:3000`
 ---
 
 ## 📞 संपर्क एवं व्यवस्था (Contact)
-* **तीर्थ पुरोहित:** पंडित गोपाल कृष्ण शास्त्री (उज्जैन)
-* **मोबाइल / WhatsApp:** +91 81205 19645
+* **वैदिक पुरोहित:** पंडित गोपाल कृष्ण शास्त्री (उज्जैन)
+* **मोबाइल / WhatsApp:** +91 87199 66101
 * **स्थान:** श्री महाकालेश्वर एवं मंगलनाथ मंदिर रोड, उज्जैन, मध्य प्रदेश - 456001
 * **Instagram:** [https://www.instagram.com/__pandit_gopal_shastri_ujjain](https://www.instagram.com/__pandit_gopal_shastri_ujjain?xtok=MTh1OGM3eDltNWprNQ==)
 

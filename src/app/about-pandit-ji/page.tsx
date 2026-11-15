@@ -42,7 +42,7 @@ export default function AboutPage() {
             <div className="text-center md:text-left space-y-3">
               <div className="inline-flex items-center gap-2 bg-amber-100 text-amber-900 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
                 <ShieldCheck className="w-4 h-4 text-emerald-600" />
-                <span>प्रमाणित तीर्थ पुरोहित उज्जैन</span>
+                <span>प्रमाणित वैदिक पुरोहित उज्जैन</span>
               </div>
 
               <h1 className="text-2xl sm:text-4xl font-extrabold text-stone-900">

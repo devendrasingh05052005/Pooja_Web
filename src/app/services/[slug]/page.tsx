@@ -159,6 +159,20 @@ export default function ServicePage({ params }: Props) {
             {service.shortDescription}
           </p>
 
+          {service.id === "baglamukhi-anushthan" && (
+            <div className="mt-5 p-4 bg-gradient-to-r from-yellow-500/20 via-amber-400/20 to-yellow-500/20 border-2 border-yellow-400 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-3 text-yellow-200">
+              <div className="text-xs sm:text-sm font-bold text-center sm:text-left">
+                ⭐ मां बगलामुखी विशेष अनुष्ठान का संपूर्ण समर्पित व विस्तृत पृष्ठ देखें:
+              </div>
+              <Link
+                href="/baglamukhi-vishesh-anushthan"
+                className="bg-gradient-to-r from-yellow-400 to-amber-500 hover:brightness-110 text-stone-950 font-extrabold px-4 py-2 rounded-xl text-xs shrink-0 transition shadow"
+              >
+                बगलामुखी विशेष पृष्ठ खोलें ›
+              </Link>
+            </div>
+          )}
+
           <div className="mt-6 flex flex-wrap gap-4 text-xs sm:text-sm">
             <span className="flex items-center gap-1.5 bg-white/10 px-3.5 py-1.5 rounded-lg border border-white/10">
               <MapPin className="w-4 h-4 text-amber-400" />

@@ -65,7 +65,7 @@ export default function Navbar() {
                 </span>
               </div>
               <p className="text-xs text-amber-800 font-medium">
-                श्री महाकाल एवं मंगलनाथ तीर्थ पुरोहित | उज्जैन (म.प्र.)
+                श्री महाकाल एवं मंगलनाथ क्षेत्र | वैदिक पुरोहित उज्जैन (म.प्र.)
               </p>
             </div>
           </Link>
@@ -77,6 +77,15 @@ export default function Navbar() {
               className="text-stone-700 hover:text-vedic-saffron font-semibold transition text-sm"
             >
               मुख्य पृष्ठ (Home)
+            </Link>
+
+            {/* Special Highlight: Baglamukhi Vishesh Anushthan Dedicated Page */}
+            <Link
+              href="/baglamukhi-vishesh-anushthan"
+              className="bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600 hover:brightness-110 text-white font-extrabold px-3 py-1.5 rounded-full shadow-sm text-xs flex items-center gap-1.5 border border-yellow-300 transition transform hover:scale-105"
+            >
+              <span className="w-2 h-2 rounded-full bg-white animate-ping"></span>
+              <span>⭐ बगलामुखी विशेष अनुष्ठान</span>
             </Link>
 
             {/* Services Dropdown */}
@@ -167,6 +176,16 @@ export default function Navbar() {
               className="px-3 py-2 rounded-lg text-stone-800 font-bold hover:bg-amber-50"
             >
               मुख्य पृष्ठ (Home)
+            </Link>
+
+            {/* Baglamukhi Dedicated Page Highlight in Mobile Menu */}
+            <Link
+              href="/baglamukhi-vishesh-anushthan"
+              onClick={() => setIsOpen(false)}
+              className="px-3.5 py-2.5 rounded-xl bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600 text-white font-extrabold text-sm shadow flex items-center justify-between"
+            >
+              <span>⭐ मां बगलामुखी विशेष अनुष्ठान</span>
+              <span className="text-[10px] bg-white/20 px-2 py-0.5 rounded-full font-bold">विशेष पेज</span>
             </Link>
 
             <div className="border-t border-b border-amber-50 py-2">

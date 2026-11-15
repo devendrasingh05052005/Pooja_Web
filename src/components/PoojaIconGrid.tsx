@@ -16,6 +16,9 @@ import {
   Flower2,
   Coins,
   Moon,
+  Home,
+  Star,
+  Crown,
   ChevronRight,
   MapPin,
   Clock,
@@ -42,11 +45,17 @@ const getServiceIcon = (iconName: string) => {
     case "Droplets":
       return <Droplets className="w-8 h-8 text-sky-600" />;
     case "BookOpen":
-      return <BookOpen className="w-8 h-8 text-purple-600" />;
+      return <BookOpen className="w-8 h-8 text-emerald-700" />;
     case "Coins":
       return <Coins className="w-8 h-8 text-amber-500" />;
     case "Moon":
       return <Moon className="w-8 h-8 text-sky-500" />;
+    case "Home":
+      return <Home className="w-8 h-8 text-amber-700" />;
+    case "Star":
+      return <Star className="w-8 h-8 text-amber-500 fill-amber-100" />;
+    case "Crown":
+      return <Crown className="w-8 h-8 text-yellow-500 fill-yellow-100" />;
     case "Flower2":
     default:
       return <Flower2 className="w-8 h-8 text-rose-600" />;
@@ -92,24 +101,38 @@ export default function PoojaIconGrid() {
           </div>
         </div>
 
-        {/* 10 Services Grid - Each with Interactive Icon & Link */}
+        {/* Services Grid - Each with Interactive Icon & Link */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {servicesData.map((service: PoojaService, index: number) => (
-            <Link
-              key={service.id}
-              href={`/services/${service.slug}`}
-              className="group relative bg-white rounded-2xl p-6 shadow-md hover:shadow-xl border border-amber-100 hover:border-amber-400 transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col justify-between"
-            >
-              {/* Top Badge */}
-              <div className="flex justify-between items-start mb-4">
-                <div className="w-16 h-16 rounded-2xl bg-amber-50 group-hover:bg-amber-100 flex items-center justify-center border border-amber-200/80 group-hover:scale-110 transition-transform duration-300 shadow-inner">
-                  {getServiceIcon(service.icon)}
-                </div>
+          {servicesData.map((service: PoojaService, index: number) => {
+            const isBaglamukhi = service.id === "baglamukhi-anushthan";
+            const serviceHref = isBaglamukhi ? "/baglamukhi-vishesh-anushthan" : `/services/${service.slug}`;
 
-                <span className="text-[11px] font-bold px-2.5 py-1 rounded-full bg-amber-100 text-amber-900 border border-amber-200">
-                  {service.badgeHindi}
-                </span>
-              </div>
+            return (
+              <Link
+                key={service.id}
+                href={serviceHref}
+                className={`group relative rounded-2xl p-6 shadow-md hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col justify-between ${
+                  isBaglamukhi
+                    ? "bg-gradient-to-b from-amber-50/80 via-white to-amber-100/40 border-2 border-yellow-400 ring-2 ring-yellow-300/40"
+                    : "bg-white border border-amber-100 hover:border-amber-400"
+                }`}
+              >
+                {/* Top Badge */}
+                <div className="flex justify-between items-start mb-4">
+                  <div className={`w-16 h-16 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-inner ${
+                    isBaglamukhi ? "bg-yellow-100 border-2 border-yellow-300" : "bg-amber-50 group-hover:bg-amber-100 border border-amber-200/80"
+                  }`}>
+                    {getServiceIcon(service.icon)}
+                  </div>
+
+                  <span className={`text-[11px] font-bold px-2.5 py-1 rounded-full border ${
+                    isBaglamukhi
+                      ? "bg-gradient-to-r from-amber-500 to-yellow-600 text-white border-yellow-300 shadow-xs"
+                      : "bg-amber-100 text-amber-900 border border-amber-200"
+                  }`}>
+                    {isBaglamukhi ? "⭐ विशेष अनुष्ठान" : service.badgeHindi}
+                  </span>
+                </div>
 
               {/* Service Titles */}
               <div>
@@ -146,7 +169,8 @@ export default function PoojaIconGrid() {
                 </div>
               </div>
             </Link>
-          ))}
+          );
+        })}
         </div>
 
         {/* Vedic Assurance Banner */}
