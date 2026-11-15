@@ -3,7 +3,7 @@
 
 > **Live Repository:** [https://github.com/devendrasingh05052005/Pooja_Web](https://github.com/devendrasingh05052005/Pooja_Web)  
 > **Official Instagram:** [@__pandit_gopal_shastri_ujjain](https://www.instagram.com/__pandit_gopal_shastri_ujjain?xtok=MTh1OGM3eDltNWprNQ==)  
-> **Contact & WhatsApp:** +91 87199 66101
+> **Contact & WhatsApp:** +91 81205 19645
 
 ---
 
@@ -40,7 +40,7 @@
 
 3. **Zero-Friction WhatsApp & Lead Automation:**
    - 30-सेकंड बुकिंग फॉर्म: यजमान का नाम, फोन, शहर, गोत्र, इच्छित तिथि, पूजन का माध्यम (प्रत्यक्ष vs ई-पूजा)।
-   - फॉर्म सबमिट होते ही पंडित जी के नंबर (`+91 87199 66101`) पर संपूर्ण विवरण के साथ प्री-फॉर्मेटेड WhatsApp संदेश स्वतः खुल जाता है।
+   - फॉर्म सबमिट होते ही पंडित जी के नंबर (`+91 81205 19645`) पर संपूर्ण विवरण के साथ प्री-फॉर्मेटेड WhatsApp संदेश स्वतः खुल जाता है।
    - सभी लीड्स बैकएंड डेटाबेस (`/data/leads.json`) में सुरक्षित सेव होती हैं।
 
 4. **Pandit Ji Admin Dashboard (`/admin`):**
@@ -85,7 +85,7 @@ Server runs on: `http://localhost:3000`
 
 ## 📞 संपर्क एवं व्यवस्था (Contact)
 * **वैदिक पुरोहित:** पंडित गोपाल कृष्ण शास्त्री (उज्जैन)
-* **मोबाइल / WhatsApp:** +91 87199 66101
+* **मोबाइल / WhatsApp:** +91 81205 19645
 * **स्थान:** श्री महाकालेश्वर एवं मंगलनाथ मंदिर रोड, उज्जैन, मध्य प्रदेश - 456001
 * **Instagram:** [https://www.instagram.com/__pandit_gopal_shastri_ujjain](https://www.instagram.com/__pandit_gopal_shastri_ujjain?xtok=MTh1OGM3eDltNWprNQ==)
 

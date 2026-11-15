@@ -8,10 +8,10 @@ export const siteConfig = {
   ogImage: "/images/og-image.jpg",
   contact: {
     // Pandit Gopal Krishna Shastri Ji's official contact number
-    whatsappNumber: "918719966101",
-    callNumber: "+91-8719966101",
-    whatsappDisplay: "+91 87199 66101",
-    callDisplay: "+91 87199 66101",
+    whatsappNumber: "918120519645",
+    callNumber: "+91-8120519645",
+    whatsappDisplay: "+91 81205 19645",
+    callDisplay: "+91 81205 19645",
     email: "contact@ujjainpooja.com",
     address: {
       line1: "निकट श्री महाकालेश्वर मंदिर एवं मंगलनाथ मंदिर रोड",
