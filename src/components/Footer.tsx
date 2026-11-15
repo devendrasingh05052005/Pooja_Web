@@ -131,6 +131,27 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* Top 10 Searched Keywords SEO Block */}
+        <div className="mt-12 pt-6 border-t border-stone-800/80">
+          <div className="text-[11px] font-bold text-amber-500 uppercase tracking-widest mb-3">
+            Google पर सर्वाधिक खोजी जाने वाली सेवाएं (Popular Searches):
+          </div>
+          <div className="flex flex-wrap gap-2 text-[11px] text-stone-400">
+            <span className="hover:text-amber-300">Ujjain Pooja Pandit</span> •
+            <span className="hover:text-amber-300">Kaal Sarp Puja Ujjain</span> •
+            <span className="hover:text-amber-300">Mangal Dosh Puja Ujjain</span> •
+            <span className="hover:text-amber-300">Mangalnath Mandir Bhaat Puja</span> •
+            <span className="hover:text-amber-300">Best Pandit in Ujjain</span> •
+            <span className="hover:text-amber-300">Baglamukhi Puja Ujjain</span> •
+            <span className="hover:text-amber-300">Mahamrityunjay Jaap Pandit Ujjain</span> •
+            <span className="hover:text-amber-300">Vastu Shanti Puja Ujjain</span> •
+            <span className="hover:text-amber-300">Mool Nakshatra Shanti Puja</span> •
+            <span className="hover:text-amber-300">Kumbh Vivah Ujjain</span> •
+            <span className="hover:text-amber-300">Online Puja Booking Ujjain</span> •
+            <span className="hover:text-amber-300">Pandit Gopal Krishna Shastri</span>
+          </div>
+        </div>
+
         {/* Bottom Legal & Copyright Bar */}
         <div className="mt-12 pt-6 border-t border-stone-800/80 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-stone-500">
           <p>

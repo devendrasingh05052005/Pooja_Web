@@ -133,6 +133,86 @@ export default function HomePage() {
       {/* Sacred Tirth Sthals of Ujjain */}
       <UjjainTirthInfo />
 
+      {/* Top 10 Searched Pooja Keywords & Direct Links */}
+      <section className="py-12 bg-amber-50/70 border-y border-amber-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-6">
+            <span className="text-xs font-bold text-amber-800 uppercase tracking-widest bg-amber-200/80 px-3 py-1 rounded-full">
+              Google Top Searched Services
+            </span>
+            <h3 className="text-xl sm:text-2xl font-extrabold text-stone-900 mt-2">
+              उज्जैन की सर्वाधिक खोजी जाने वाली प्रमुख वैदिक पूजाएं
+            </h3>
+            <p className="text-stone-600 text-xs sm:text-sm mt-1">
+              Google पर यजमानों द्वारा सबसे ज्यादा खोजी जाने वाली पूजाएं एवं सीधे स्लॉट बुकिंग लिंक्स:
+            </p>
+          </div>
+
+          <div className="flex flex-wrap justify-center gap-2.5 sm:gap-3 text-xs sm:text-sm font-medium">
+            <a
+              href="/services/kaal-sarp-dosh-puja-ujjain"
+              className="bg-white hover:bg-vedic-saffron hover:text-white text-stone-800 px-4 py-2 rounded-xl shadow-xs border border-amber-200 transition"
+            >
+              🔱 कालसर्प दोष पूजा उज्जैन (Kaal Sarp Puja)
+            </a>
+            <a
+              href="/services/mangal-dosh-puja-ujjain"
+              className="bg-white hover:bg-vedic-saffron hover:text-white text-stone-800 px-4 py-2 rounded-xl shadow-xs border border-amber-200 transition"
+            >
+              🔴 मंगलनाथ भात पूजा (Mangal Dosh Puja)
+            </a>
+            <a
+              href="/baglamukhi-vishesh-anushthan"
+              className="bg-gradient-to-r from-yellow-500 to-amber-500 text-stone-950 font-bold px-4 py-2 rounded-xl shadow-sm border border-yellow-400 transition hover:scale-105"
+            >
+              ⭐ मां बगलामुखी विशेष अनुष्ठान (Court Case / शत्रु विजय)
+            </a>
+            <a
+              href="/services/mahamrityunjay-jaap-ujjain"
+              className="bg-white hover:bg-vedic-saffron hover:text-white text-stone-800 px-4 py-2 rounded-xl shadow-xs border border-amber-200 transition"
+            >
+              🕉️ महामृत्युंजय मंत्र जाप उज्जैन
+            </a>
+            <a
+              href="/services/vastu-shanti-puja-ujjain"
+              className="bg-white hover:bg-vedic-saffron hover:text-white text-stone-800 px-4 py-2 rounded-xl shadow-xs border border-amber-200 transition"
+            >
+              🏡 वास्तु शांति पूजन (Vastu Shanti Puja)
+            </a>
+            <a
+              href="/services/mool-nakshatra-shanti-puja-ujjain"
+              className="bg-white hover:bg-vedic-saffron hover:text-white text-stone-800 px-4 py-2 rounded-xl shadow-xs border border-amber-200 transition"
+            >
+              ⭐ मूल नक्षत्र (गंडमूल) शांति पूजन
+            </a>
+            <a
+              href="/services/kumbh-vivah-puja-ujjain"
+              className="bg-white hover:bg-vedic-saffron hover:text-white text-stone-800 px-4 py-2 rounded-xl shadow-xs border border-amber-200 transition"
+            >
+              💍 कुंभ विवाह पूजा (कन्या मांगलिक दोष)
+            </a>
+            <a
+              href="/services/ark-vivah-puja-ujjain"
+              className="bg-white hover:bg-vedic-saffron hover:text-white text-stone-800 px-4 py-2 rounded-xl shadow-xs border border-amber-200 transition"
+            >
+              🌿 अर्क विवाह पूजन (वर मांगलिक दोष)
+            </a>
+            <a
+              href="/services/satyanarayan-katha-ujjain"
+              className="bg-white hover:bg-vedic-saffron hover:text-white text-stone-800 px-4 py-2 rounded-xl shadow-xs border border-amber-200 transition"
+            >
+              📜 श्री सत्यनारायण कथा व हवन
+            </a>
+            <a
+              href="/services/pitra-dosh-puja-ujjain"
+              className="bg-white hover:bg-vedic-saffron hover:text-white text-stone-800 px-4 py-2 rounded-xl shadow-xs border border-amber-200 transition"
+            >
+              🪔 पितृ दोष निवारण व नारायण बलि
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* Booking Form in dedicated container for anchored clicks */}
       <section className="py-16 sm:py-24 bg-gradient-to-b from-amber-50/40 via-white to-amber-50/60">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
