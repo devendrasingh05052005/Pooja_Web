@@ -4,7 +4,7 @@ export const siteConfig = {
   title: "पंडित गोपाल कृष्ण शास्त्री | उज्जैन में कालसर्प, मंगल दोष एवं समस्त वैदिक पूजन",
   description:
     "उज्जैन के सुप्रसिद्ध वैदिक पुरोहित पंडित गोपाल कृष्ण शास्त्री जी द्वारा कालसर्प दोष निवारण, मंगल भात पूजा (मंगलनाथ), महामृत्युंजय जाप, कुंभ-अर्क विवाह एवं वैदिक अनुष्ठान। उज्जैन आकर या घर बैठे ऑनलाइन संकल्प पूजा की सुविधा।",
-  url: "https://www.panditgopalshastriujjain.com",
+  url: "https://www.ujjainpooja.com",
   ogImage: "/images/og-image.jpg",
   contact: {
     // Pandit Gopal Krishna Shastri Ji's official contact number
@@ -12,7 +12,7 @@ export const siteConfig = {
     callNumber: "+91-8719966101",
     whatsappDisplay: "+91 87199 66101",
     callDisplay: "+91 87199 66101",
-    email: "contact@panditgopalshastriujjain.com",
+    email: "contact@ujjainpooja.com",
     address: {
       line1: "निकट श्री महाकालेश्वर मंदिर एवं मंगलनाथ मंदिर रोड",
       city: "उज्जैन (Ujjain)",
