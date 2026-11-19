@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   },
   description: siteConfig.description,
   verification: {
-    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || "google-site-verification-token",
+    google: "GHKW0uNwa6kiX54ugCYxtfK66WkJnC9JlU6WESGz_So",
   },
   keywords: [
     // Top 10 Most Searched Keywords in Ujjain for Puja & Pandit
@@ -160,6 +160,10 @@ export default function RootLayout({
   return (
     <html lang="hi" className="notranslate-custom">
       <head>
+        <meta
+          name="google-site-verification"
+          content="GHKW0uNwa6kiX54ugCYxtfK66WkJnC9JlU6WESGz_So"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
