@@ -1,6 +1,7 @@
-# पंडित गोपाल कृष्ण शास्त्री - उज्जैन
-### (Pandit Gopal Krishna Shastri - Ujjain Vedic Pooja Booking Platform)
+# Ujjain Pooja Booking | Online Pandit Booking in Ujjain
+### (पंडित गोपाल कृष्ण शास्त्री - उज्जैन वैदिक पूजा बुकिंग प्लेटफ़ॉर्म)
 
+> **Live Website:** [https://www.ujjainpoojabooking.com](https://www.ujjainpoojabooking.com)  
 > **Live Repository:** [https://github.com/devendrasingh05052005/Pooja_Web](https://github.com/devendrasingh05052005/Pooja_Web)  
 > **Official Instagram:** [@__pandit_gopal_shastri_ujjain](https://www.instagram.com/__pandit_gopal_shastri_ujjain?xtok=MTh1OGM3eDltNWprNQ==)  
 > **Contact & WhatsApp:** +91 81205 19645
@@ -8,14 +9,17 @@
 ---
 
 ## 🔱 About The Project (परियोजना परिचय)
-यह वेबसाइट **पंडित गोपाल कृष्ण शास्त्री जी (उज्जैन)** के लिए एक उच्च स्तरीय, आधुनिक और सर्च इंजन ऑप्टिमाइज़्ड (SEO) वैदिक पूजा बुकिंग प्लेटफ़ॉर्म है। 
+यह वेबसाइट **Ujjain Pooja Booking & Online Pandit Booking** हेतु पंडित गोपाल कृष्ण शास्त्री जी (उज्जैन) के लिए एक उच्च स्तरीय, आधुनिक और Google सर्च इंजन ऑप्टिमाइज़्ड (SEO) वैदिक पूजा बुकिंग प्लेटफ़ॉर्म है। 
 इसके माध्यम से देश-विदेश के यजमान उज्जैन आकर प्रत्यक्ष अथवा घर बैठे ऑनलाइन संकल्प (E-Pooja) के माध्यम से संपूर्ण वैदिक अनुष्ठान संपन्न करवा सकते हैं।
 
 ---
 
 ## ✨ Key Features (मुख्य विशेषताएं)
 
-1. **17 Dedicated Vedic Pooja Services & Dedicated Pages:**
+1. **19 Dedicated Vedic Pooja Services & Pillar SEO Pages:**
+   - **✨ उज्जैन पंडित बुकिंग (Pillar Page):** (`/ujjain-pandit-booking`)
+   - **🕉️ महाकाल पूजा एवं रुद्राभिषेक (Pillar Page):** (`/mahakal-pooja-ujjain`)
+   - **⭐ मां बगलामुखी विशेष अनुष्ठान (Dedicated Landing Page):** (`/baglamukhi-vishesh-anushthan`)
    - कालसर्प योग / कालसर्प दोष निवारण पूजा (`/services/kaal-sarp-dosh-puja-ujjain`)
    - मंगल पूजन / भात पूजा - मंगलनाथ तीर्थ (`/services/mangal-dosh-puja-ujjain`)
    - महामृत्युंजय मंत्र जाप एवं अनुष्ठान (`/services/mahamrityunjay-jaap-ujjain`)
@@ -32,7 +36,6 @@
    - **वास्तु शांति पूजन एवं गृह प्रवेश दोष निवारण** (`/services/vastu-shanti-puja-ujjain`)
    - **श्री सत्यनारायण व्रत कथा एवं हवन पूजन** (`/services/satyanarayan-katha-ujjain`)
    - **मूल नक्षत्र (गंडमूल) शांति पूजन** (`/services/mool-nakshatra-shanti-puja-ujjain`)
-   - **⭐ मां बगलामुखी विशेष अनुष्ठान (Dedicated Landing Page)** (`/baglamukhi-vishesh-anushthan`)
 
 2. **10 Indian Languages Full-Website Translation:**
    - हिन्दी (Hindi), English, मराठी (Marathi), ગુજરાતી (Gujarati), తెలుగు (Telugu), தமிழ் (Tamil), বাংলা (Bengali), ಕನ್ನಡ (Kannada), മലയാളം (Malayalam), ਪੰਜਾਬੀ (Punjabi).

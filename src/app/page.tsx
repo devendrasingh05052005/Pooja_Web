@@ -150,6 +150,18 @@ export default function HomePage() {
 
           <div className="flex flex-wrap justify-center gap-2.5 sm:gap-3 text-xs sm:text-sm font-medium">
             <a
+              href="/ujjain-pandit-booking"
+              className="bg-amber-100 hover:bg-amber-200 text-amber-950 font-bold px-4 py-2 rounded-xl shadow-xs border border-amber-300 transition"
+            >
+              ✨ उज्जैन पंडित बुकिंग (Ujjain Pandit Booking)
+            </a>
+            <a
+              href="/mahakal-pooja-ujjain"
+              className="bg-amber-100 hover:bg-amber-200 text-amber-950 font-bold px-4 py-2 rounded-xl shadow-xs border border-amber-300 transition"
+            >
+              🕉️ महाकाल पूजा एवं रुद्राभिषेक (Mahakal Pooja)
+            </a>
+            <a
               href="/services/kaal-sarp-dosh-puja-ujjain"
               className="bg-white hover:bg-vedic-saffron hover:text-white text-stone-800 px-4 py-2 rounded-xl shadow-xs border border-amber-200 transition"
             >

@@ -137,18 +137,19 @@ export default function Footer() {
             Google पर सर्वाधिक खोजी जाने वाली सेवाएं (Popular Searches):
           </div>
           <div className="flex flex-wrap gap-2 text-[11px] text-stone-400">
-            <span className="hover:text-amber-300">Ujjain Pooja Pandit</span> •
-            <span className="hover:text-amber-300">Kaal Sarp Puja Ujjain</span> •
-            <span className="hover:text-amber-300">Mangal Dosh Puja Ujjain</span> •
-            <span className="hover:text-amber-300">Mangalnath Mandir Bhaat Puja</span> •
-            <span className="hover:text-amber-300">Best Pandit in Ujjain</span> •
-            <span className="hover:text-amber-300">Baglamukhi Puja Ujjain</span> •
-            <span className="hover:text-amber-300">Mahamrityunjay Jaap Pandit Ujjain</span> •
-            <span className="hover:text-amber-300">Vastu Shanti Puja Ujjain</span> •
-            <span className="hover:text-amber-300">Mool Nakshatra Shanti Puja</span> •
-            <span className="hover:text-amber-300">Kumbh Vivah Ujjain</span> •
-            <span className="hover:text-amber-300">Online Puja Booking Ujjain</span> •
-            <span className="hover:text-amber-300">Pandit Gopal Krishna Shastri</span>
+            <Link href="/ujjain-pandit-booking" className="hover:text-amber-300">Ujjain Pandit Booking</Link> •
+            <Link href="/mahakal-pooja-ujjain" className="hover:text-amber-300">Mahakal Pooja Ujjain</Link> •
+            <Link href="/services/kaal-sarp-dosh-puja-ujjain" className="hover:text-amber-300">Kaal Sarp Puja Ujjain</Link> •
+            <Link href="/services/mangal-dosh-puja-ujjain" className="hover:text-amber-300">Mangal Dosh Puja Ujjain</Link> •
+            <Link href="/services/mangal-dosh-puja-ujjain" className="hover:text-amber-300">Mangalnath Mandir Bhaat Puja</Link> •
+            <Link href="/ujjain-pandit-booking" className="hover:text-amber-300">Best Pandit in Ujjain</Link> •
+            <Link href="/baglamukhi-vishesh-anushthan" className="hover:text-amber-300">Baglamukhi Puja Ujjain</Link> •
+            <Link href="/services/mahamrityunjay-jaap-ujjain" className="hover:text-amber-300">Mahamrityunjay Jaap Ujjain</Link> •
+            <Link href="/services/vastu-shanti-puja-ujjain" className="hover:text-amber-300">Vastu Shanti Puja Ujjain</Link> •
+            <Link href="/services/mool-nakshatra-shanti-puja-ujjain" className="hover:text-amber-300">Mool Nakshatra Shanti Puja</Link> •
+            <Link href="/services/kumbh-vivah-puja-ujjain" className="hover:text-amber-300">Kumbh Vivah Ujjain</Link> •
+            <Link href="/#book" className="hover:text-amber-300">Online Puja Booking Ujjain</Link> •
+            <Link href="/about-pandit-ji" className="hover:text-amber-300">Pandit Gopal Krishna Shastri</Link>
           </div>
         </div>
 

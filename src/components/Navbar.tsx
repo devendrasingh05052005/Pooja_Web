@@ -118,6 +118,20 @@ export default function Navbar() {
             </div>
 
             <Link
+              href="/ujjain-pandit-booking"
+              className="text-stone-700 hover:text-vedic-saffron font-semibold transition text-sm"
+            >
+              पंडित बुकिंग
+            </Link>
+
+            <Link
+              href="/mahakal-pooja-ujjain"
+              className="text-stone-700 hover:text-vedic-saffron font-semibold transition text-sm"
+            >
+              महाकाल पूजा
+            </Link>
+
+            <Link
               href="/about-pandit-ji"
               className="text-stone-700 hover:text-vedic-saffron font-semibold transition text-sm"
             >
@@ -187,6 +201,24 @@ export default function Navbar() {
               <span>⭐ मां बगलामुखी विशेष अनुष्ठान</span>
               <span className="text-[10px] bg-white/20 px-2 py-0.5 rounded-full font-bold">विशेष पेज</span>
             </Link>
+
+            {/* New Quick Links: Pandit Booking & Mahakal Pooja */}
+            <div className="grid grid-cols-2 gap-2 pt-1">
+              <Link
+                href="/ujjain-pandit-booking"
+                onClick={() => setIsOpen(false)}
+                className="px-3 py-2 rounded-lg bg-amber-50 hover:bg-amber-100 text-stone-800 font-bold text-xs text-center border border-amber-200"
+              >
+                🕉️ पंडित बुकिंग
+              </Link>
+              <Link
+                href="/mahakal-pooja-ujjain"
+                onClick={() => setIsOpen(false)}
+                className="px-3 py-2 rounded-lg bg-amber-50 hover:bg-amber-100 text-stone-800 font-bold text-xs text-center border border-amber-200"
+              >
+                🔱 महाकाल पूजा
+              </Link>
+            </div>
 
             <div className="border-t border-b border-amber-50 py-2">
               <span className="text-xs font-bold text-amber-800 px-3 uppercase tracking-wider">

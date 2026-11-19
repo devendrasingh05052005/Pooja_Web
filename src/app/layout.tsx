@@ -12,9 +12,12 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
     default: siteConfig.title,
-    template: `%s | ${siteConfig.name}`,
+    template: `%s | Ujjain Pooja Booking`,
   },
   description: siteConfig.description,
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || "google-site-verification-token",
+  },
   keywords: [
     // Top 10 Most Searched Keywords in Ujjain for Puja & Pandit
     "Ujjain Pooja Pandit",
@@ -104,8 +107,13 @@ export default function RootLayout({
       {
         "@type": "LocalBusiness",
         "@id": `${siteConfig.url}/#organization`,
-        name: siteConfig.name,
-        alternateName: siteConfig.englishName,
+        name: "Ujjain Pooja Booking - Pandit Gopal Krishna Shastri",
+        alternateName: [
+          "Ujjain Pandit Booking",
+          "Ujjain Pooja Booking",
+          "पंडित गोपाल कृष्ण शास्त्री - उज्जैन",
+          siteConfig.englishName,
+        ],
         url: siteConfig.url,
         logo: `${siteConfig.url}/logo.png`,
         image: `${siteConfig.url}/images/og-image.jpg`,
