@@ -13,25 +13,28 @@ export default function Navbar() {
   const { t } = useLanguage();
 
   return (
-    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-md border-b border-amber-100">
+    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-md border-b border-amber-100 w-full overflow-hidden">
       {/* Top Banner - Spiritual Chants & Contact */}
-      <div className="bg-gradient-to-r from-vedic-maroon via-vedic-saffron to-vedic-maroon text-white text-xs sm:text-sm py-1.5 px-3 sm:px-4">
-        <div className="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
-          <div className="flex items-center gap-2 font-medium">
-            <span className="bg-white/20 px-2 py-0.5 rounded text-[11px] font-semibold tracking-wider">
+      <div className="bg-gradient-to-r from-vedic-maroon via-vedic-saffron to-vedic-maroon text-white text-xs sm:text-sm py-1.5 px-3 sm:px-4 w-full overflow-hidden">
+        <div className="max-w-7xl mx-auto flex items-center justify-between gap-2 overflow-hidden">
+          <div className="flex items-center gap-1.5 sm:gap-2 font-medium min-w-0 overflow-hidden">
+            <span
+              translate="no"
+              className="notranslate bg-white/20 px-2 py-0.5 rounded text-[11px] font-semibold tracking-wider shrink-0 select-none"
+            >
               ॐ नमः शिवाय
             </span>
-            <span className="hidden md:inline">
+            <span className="truncate text-xs text-amber-100 hidden md:inline">
               श्री अवंतिका नगरी (उज्जैन) - 100% शास्त्रीय एवं वैदिक पद्धति पूजन
             </span>
           </div>
 
-          <div className="flex items-center gap-3 sm:gap-4 text-xs shrink-0">
+          <div className="flex items-center gap-2.5 sm:gap-4 text-xs shrink-0">
             <a
               href={`tel:${siteConfig.contact.callNumber}`}
-              className="flex items-center gap-1 hover:text-amber-200 transition font-semibold"
+              className="flex items-center gap-1 hover:text-amber-200 transition font-semibold whitespace-nowrap"
             >
-              <Phone className="w-3.5 h-3.5" />
+              <Phone className="w-3.5 h-3.5 shrink-0" />
               <span>{siteConfig.contact.callDisplay}</span>
             </a>
             <a
@@ -40,40 +43,40 @@ export default function Navbar() {
               )}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1 bg-[#25D366] text-white px-2.5 py-0.5 rounded font-semibold hover:bg-emerald-600 transition"
+              className="flex items-center gap-1 bg-[#25D366] text-white px-2 py-0.5 rounded font-semibold hover:bg-emerald-600 transition whitespace-nowrap shrink-0"
             >
-              <MessageCircle className="w-3.5 h-3.5" />
+              <MessageCircle className="w-3.5 h-3.5 shrink-0" />
               <span>WhatsApp</span>
             </a>
           </div>
         </div>
       </div>
 
-      {/* Main Navbar - 100% Single Line, Perfectly Aligned */}
-      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16 sm:h-20 gap-2">
+      {/* Main Navbar - 100% Single Line, Never Overflows in Any Language */}
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 w-full">
+        <div className="flex justify-between items-center h-16 sm:h-20 gap-2 w-full">
           {/* Logo & Brand Identity */}
-          <Link href="/" className="flex items-center gap-2 group shrink-0">
+          <Link href="/" className="flex items-center gap-2 group shrink-0 min-w-0">
             <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-gradient-to-br from-vedic-saffron to-amber-500 flex items-center justify-center text-white font-bold text-xl shadow-md border-2 border-amber-200 group-hover:scale-105 transition-transform shrink-0">
               ॐ
             </div>
-            <div>
+            <div className="min-w-0">
               <div className="flex items-center gap-1">
-                <span className="font-extrabold text-sm sm:text-base xl:text-lg text-stone-900 group-hover:text-vedic-saffron transition whitespace-nowrap">
+                <span className="font-extrabold text-sm sm:text-base lg:text-sm xl:text-base text-stone-900 group-hover:text-vedic-saffron transition whitespace-nowrap">
                   {siteConfig.name}
                 </span>
-                <span title="प्रमाणित वैदिक पुरोहित">
+                <span title="प्रमाणित वैदिक पुरोहित" className="shrink-0">
                   <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 inline" />
                 </span>
               </div>
-              <p className="text-[10px] sm:text-xs text-amber-800 font-medium whitespace-nowrap hidden sm:block">
+              <p className="text-[10px] text-amber-800 font-medium whitespace-nowrap hidden 2xl:block">
                 श्री महाकाल एवं मंगलनाथ क्षेत्र | वैदिक पुरोहित उज्जैन
               </p>
             </div>
           </Link>
 
-          {/* Desktop Navigation Links - Single Row, No Wrap, All Same Level */}
-          <nav className="hidden lg:flex items-center justify-end gap-1 xl:gap-2 2xl:gap-3.5 flex-nowrap shrink-0">
+          {/* Desktop Navigation Links - Compact, Single Row, Immune to Language Expansion */}
+          <nav className="hidden lg:flex items-center justify-end gap-1.5 xl:gap-2.5 2xl:gap-3.5 flex-nowrap shrink-0">
             <Link
               href="/"
               className="text-stone-700 hover:text-vedic-saffron hover:bg-amber-50/60 font-semibold transition text-xs xl:text-sm px-2 py-1 rounded-md whitespace-nowrap"
@@ -90,7 +93,7 @@ export default function Navbar() {
               <span>⭐ बगलामुखी अनुष्ठान</span>
             </Link>
 
-            {/* Services Dropdown */}
+            {/* Services Dropdown - Featuring Pandit Booking & Mahakal at the top */}
             <div className="relative group">
               <button
                 type="button"
@@ -102,10 +105,28 @@ export default function Navbar() {
               </button>
 
               <div className="absolute right-0 sm:left-0 top-full hidden group-hover:block w-72 sm:w-80 bg-white rounded-xl shadow-xl border border-amber-100 p-2 text-sm animate-fadeIn z-50">
-                <div className="text-[11px] font-bold text-amber-700 px-3 py-1 uppercase tracking-wider border-b border-amber-50">
+                {/* Featured quick entries in dropdown */}
+                <div className="p-1 space-y-1.5 border-b border-amber-100 pb-2 mb-1.5">
+                  <Link
+                    href="/ujjain-pandit-booking"
+                    className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-amber-50 hover:bg-amber-100 text-stone-900 font-bold text-xs sm:text-sm border border-amber-200"
+                  >
+                    <span>🕉️</span>
+                    <span>पंडित बुकिंग (Pandit Booking)</span>
+                  </Link>
+                  <Link
+                    href="/mahakal-pooja-ujjain"
+                    className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-amber-50 hover:bg-amber-100 text-stone-900 font-bold text-xs sm:text-sm border border-amber-200"
+                  >
+                    <span>🔱</span>
+                    <span>महाकाल पूजा एवं रुद्राभिषेक</span>
+                  </Link>
+                </div>
+
+                <div className="text-[11px] font-bold text-amber-700 px-3 py-1 uppercase tracking-wider">
                   उज्जैन की प्रमुख वैदिक पूजाएं
                 </div>
-                <div className="max-h-80 overflow-y-auto py-1">
+                <div className="max-h-72 overflow-y-auto py-1">
                   {servicesData.map((service) => (
                     <Link
                       key={service.id}
@@ -119,16 +140,17 @@ export default function Navbar() {
               </div>
             </div>
 
+            {/* Direct Links on Ultra-Wide Monitors */}
             <Link
               href="/ujjain-pandit-booking"
-              className="text-stone-700 hover:text-vedic-saffron hover:bg-amber-50/60 font-semibold transition text-xs xl:text-sm px-2 py-1 rounded-md whitespace-nowrap"
+              className="hidden 2xl:inline-block text-stone-700 hover:text-vedic-saffron hover:bg-amber-50/60 font-semibold transition text-xs xl:text-sm px-2 py-1 rounded-md whitespace-nowrap"
             >
               पंडित बुकिंग
             </Link>
 
             <Link
               href="/mahakal-pooja-ujjain"
-              className="text-stone-700 hover:text-vedic-saffron hover:bg-amber-50/60 font-semibold transition text-xs xl:text-sm px-2 py-1 rounded-md whitespace-nowrap"
+              className="hidden 2xl:inline-block text-stone-700 hover:text-vedic-saffron hover:bg-amber-50/60 font-semibold transition text-xs xl:text-sm px-2 py-1 rounded-md whitespace-nowrap"
             >
               महाकाल पूजा
             </Link>
@@ -140,14 +162,16 @@ export default function Navbar() {
               पंडित जी
             </Link>
 
+            {/* FAQ - Marked notranslate so it stays 3 letters in all languages! */}
             <Link
               href="/#faqs"
-              className="text-stone-700 hover:text-vedic-saffron hover:bg-amber-50/60 font-semibold transition text-xs xl:text-sm px-2 py-1 rounded-md whitespace-nowrap"
+              translate="no"
+              className="notranslate text-stone-700 hover:text-vedic-saffron hover:bg-amber-50/60 font-semibold transition text-xs xl:text-sm px-2 py-1 rounded-md whitespace-nowrap select-none"
             >
               FAQ
             </Link>
 
-            {/* Quick CTA Button - Perfectly in line */}
+            {/* Quick CTA Button - Always visible and never overflowing */}
             <Link
               href="/#book"
               className="bg-gradient-to-r from-vedic-saffron to-amber-600 hover:from-amber-600 hover:to-vedic-saffron text-white font-bold px-3 py-1.5 xl:px-4 xl:py-2 rounded-lg shadow-sm hover:shadow-md transition transform hover:-translate-y-0.5 text-xs xl:text-sm whitespace-nowrap shrink-0 ml-1"

@@ -5,9 +5,14 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
+    max-width: 100%;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   }
   body {
+    overflow-x: hidden;
+    max-width: 100%;
+    position: relative;
     @apply bg-stone-50 text-stone-900 antialiased selection:bg-amber-200 selection:text-amber-900;
   }
 }
