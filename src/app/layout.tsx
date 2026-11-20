@@ -78,13 +78,13 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/favicon.ico?v=shiva", sizes: "any" },
-      { url: "/favicon.png?v=shiva", type: "image/png" },
+      { url: "/favicon.ico?v=om", sizes: "any" },
+      { url: "/favicon.png?v=om", type: "image/png" },
     ],
     apple: [
-      { url: "/apple-touch-icon.png?v=shiva", sizes: "180x180", type: "image/png" },
+      { url: "/apple-touch-icon.png?v=om", sizes: "180x180", type: "image/png" },
     ],
-    shortcut: "/favicon.ico?v=shiva",
+    shortcut: "/favicon.ico?v=om",
   },
 };
 
