@@ -16,9 +16,9 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "पंडित गोपाल कृष्ण शास्त्री जी का परिचय | Ujjain Vedic Purohit",
+  title: "पंडित गोपाल कृष्ण शास्त्री जी का परिचय | Ujjain Vedic Pandit",
   description:
-    "उज्जैन के सुप्रसिद्ध वैदिक पुरोहित पंडित गोपाल कृष्ण शास्त्री जी का 10+ वर्षों का शास्त्रीय परिचय। कालसर्प दोष, मंगल भात पूजा एवं वैदिक अनुष्ठान विशेषज्ञ।",
+    "उज्जैन के सुप्रसिद्ध वैदिक आचार्य पंडित गोपाल कृष्ण शास्त्री जी का 10+ वर्षों का शास्त्रीय परिचय। कालसर्प दोष, मंगल भात पूजा एवं वैदिक अनुष्ठान विशेषज्ञ।",
 };
 
 export default function AboutPage() {
@@ -42,7 +42,7 @@ export default function AboutPage() {
             <div className="text-center md:text-left space-y-3">
               <div className="inline-flex items-center gap-2 bg-amber-100 text-amber-900 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
                 <ShieldCheck className="w-4 h-4 text-emerald-600" />
-                <span>प्रमाणित वैदिक पुरोहित उज्जैन</span>
+                <span>प्रमाणित वैदिक आचार्य उज्जैन</span>
               </div>
 
               <h1 className="text-2xl sm:text-4xl font-extrabold text-stone-900">

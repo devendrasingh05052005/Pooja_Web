@@ -13,10 +13,10 @@ export default function Navbar() {
   const { t } = useLanguage();
 
   return (
-    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-md border-b border-amber-100 w-full overflow-hidden">
+    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-md border-b border-amber-100 w-full">
       {/* Top Banner - Spiritual Chants & Contact */}
       <div className="bg-gradient-to-r from-vedic-maroon via-vedic-saffron to-vedic-maroon text-white text-xs sm:text-sm py-1.5 px-3 sm:px-4 w-full overflow-hidden">
-        <div className="max-w-7xl mx-auto flex items-center justify-between gap-2 overflow-hidden">
+        <div className="max-w-[1440px] mx-auto flex items-center justify-between gap-2 overflow-hidden">
           <div className="flex items-center gap-1.5 sm:gap-2 font-medium min-w-0 overflow-hidden">
             <span
               translate="no"
@@ -53,33 +53,33 @@ export default function Navbar() {
       </div>
 
       {/* Main Navbar - 100% Single Line, Never Overflows in Any Language */}
-      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 w-full">
+      <div className="max-w-[1440px] mx-auto px-3 sm:px-4 lg:px-6 w-full">
         <div className="flex justify-between items-center h-16 sm:h-20 gap-2 w-full">
           {/* Logo & Brand Identity */}
-          <Link href="/" className="flex items-center gap-2 group shrink-0 min-w-0">
-            <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-gradient-to-br from-vedic-saffron to-amber-500 flex items-center justify-center text-white font-bold text-xl shadow-md border-2 border-amber-200 group-hover:scale-105 transition-transform shrink-0">
+          <Link href="/" className="flex items-center gap-2 group shrink min-w-0">
+            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-vedic-saffron to-amber-500 flex items-center justify-center text-white font-bold text-lg sm:text-xl shadow-md border-2 border-amber-200 group-hover:scale-105 transition-transform shrink-0">
               ॐ
             </div>
             <div className="min-w-0">
               <div className="flex items-center gap-1">
-                <span className="font-extrabold text-sm sm:text-base lg:text-sm xl:text-base text-stone-900 group-hover:text-vedic-saffron transition whitespace-nowrap">
+                <span className="font-extrabold text-xs sm:text-sm xl:text-base text-stone-900 group-hover:text-vedic-saffron transition whitespace-nowrap">
                   {siteConfig.name}
                 </span>
-                <span title="प्रमाणित वैदिक पुरोहित" className="shrink-0">
+                <span title="प्रमाणित वैदिक विद्वान" className="shrink-0">
                   <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 inline" />
                 </span>
               </div>
-              <p className="text-[10px] text-amber-800 font-medium whitespace-nowrap hidden 2xl:block">
-                श्री महाकाल एवं मंगलनाथ क्षेत्र | वैदिक पुरोहित उज्जैन
+              <p className="text-[10px] text-amber-800 font-medium whitespace-nowrap hidden 2xl:block truncate max-w-xs">
+                श्री महाकाल एवं मंगलनाथ क्षेत्र, उज्जैन
               </p>
             </div>
           </Link>
 
           {/* Desktop Navigation Links - Compact, Single Row, Immune to Language Expansion */}
-          <nav className="hidden lg:flex items-center justify-end gap-1.5 xl:gap-2.5 2xl:gap-3.5 flex-nowrap shrink-0">
+          <nav className="hidden lg:flex items-center justify-end gap-1 sm:gap-1.5 xl:gap-2.5 2xl:gap-3 flex-nowrap shrink-0">
             <Link
               href="/"
-              className="text-stone-700 hover:text-vedic-saffron hover:bg-amber-50/60 font-semibold transition text-xs xl:text-sm px-2 py-1 rounded-md whitespace-nowrap"
+              className="text-stone-700 hover:text-vedic-saffron hover:bg-amber-50/60 font-semibold transition text-xs xl:text-sm px-1.5 py-1 xl:px-2 rounded-md whitespace-nowrap"
             >
               मुख्य पृष्ठ
             </Link>
@@ -87,7 +87,7 @@ export default function Navbar() {
             {/* Special Highlight: Baglamukhi Vishesh Anushthan Dedicated Page */}
             <Link
               href="/baglamukhi-vishesh-anushthan"
-              className="bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600 hover:brightness-110 text-white font-extrabold px-2.5 py-1 rounded-full shadow-xs text-xs flex items-center gap-1 border border-yellow-300 transition transform hover:scale-105 whitespace-nowrap shrink-0"
+              className="bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600 hover:brightness-110 text-white font-extrabold px-2 py-1 xl:px-2.5 rounded-full shadow-xs text-[11px] xl:text-xs flex items-center gap-1 border border-yellow-300 transition transform hover:scale-105 whitespace-nowrap shrink-0"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-white animate-ping"></span>
               <span>⭐ बगलामुखी अनुष्ठान</span>
@@ -97,7 +97,7 @@ export default function Navbar() {
             <div className="relative group">
               <button
                 type="button"
-                className="flex items-center gap-0.5 text-stone-700 hover:text-vedic-saffron hover:bg-amber-50/60 font-semibold transition text-xs xl:text-sm px-2 py-1 rounded-md whitespace-nowrap"
+                className="flex items-center gap-0.5 text-stone-700 hover:text-vedic-saffron hover:bg-amber-50/60 font-semibold transition text-xs xl:text-sm px-1.5 py-1 xl:px-2 rounded-md whitespace-nowrap"
                 onClick={() => setServicesOpen(!servicesOpen)}
               >
                 <span>पूजन सेवाएं</span>
@@ -140,33 +140,18 @@ export default function Navbar() {
               </div>
             </div>
 
-            {/* Direct Links on Ultra-Wide Monitors */}
-            <Link
-              href="/ujjain-pandit-booking"
-              className="hidden 2xl:inline-block text-stone-700 hover:text-vedic-saffron hover:bg-amber-50/60 font-semibold transition text-xs xl:text-sm px-2 py-1 rounded-md whitespace-nowrap"
-            >
-              पंडित बुकिंग
-            </Link>
-
-            <Link
-              href="/mahakal-pooja-ujjain"
-              className="hidden 2xl:inline-block text-stone-700 hover:text-vedic-saffron hover:bg-amber-50/60 font-semibold transition text-xs xl:text-sm px-2 py-1 rounded-md whitespace-nowrap"
-            >
-              महाकाल पूजा
-            </Link>
-
             <Link
               href="/about-pandit-ji"
-              className="text-stone-700 hover:text-vedic-saffron hover:bg-amber-50/60 font-semibold transition text-xs xl:text-sm px-2 py-1 rounded-md whitespace-nowrap"
+              className="text-stone-700 hover:text-vedic-saffron hover:bg-amber-50/60 font-semibold transition text-xs xl:text-sm px-1.5 py-1 xl:px-2 rounded-md whitespace-nowrap"
             >
               पंडित जी
             </Link>
 
-            {/* FAQ - Marked notranslate so it stays 3 letters in all languages! */}
+            {/* FAQ - Marked notranslate so it stays 3 letters in all languages */}
             <Link
               href="/#faqs"
               translate="no"
-              className="notranslate text-stone-700 hover:text-vedic-saffron hover:bg-amber-50/60 font-semibold transition text-xs xl:text-sm px-2 py-1 rounded-md whitespace-nowrap select-none"
+              className="notranslate text-stone-700 hover:text-vedic-saffron hover:bg-amber-50/60 font-semibold transition text-xs xl:text-sm px-1.5 py-1 xl:px-2 rounded-md whitespace-nowrap select-none"
             >
               FAQ
             </Link>
@@ -174,7 +159,7 @@ export default function Navbar() {
             {/* Quick CTA Button - Always visible and never overflowing */}
             <Link
               href="/#book"
-              className="bg-gradient-to-r from-vedic-saffron to-amber-600 hover:from-amber-600 hover:to-vedic-saffron text-white font-bold px-3 py-1.5 xl:px-4 xl:py-2 rounded-lg shadow-sm hover:shadow-md transition transform hover:-translate-y-0.5 text-xs xl:text-sm whitespace-nowrap shrink-0 ml-1"
+              className="bg-gradient-to-r from-vedic-saffron to-amber-600 hover:from-amber-600 hover:to-vedic-saffron text-white font-bold px-2.5 py-1.5 xl:px-3.5 xl:py-2 rounded-lg shadow-sm hover:shadow-md transition transform hover:-translate-y-0.5 text-xs xl:text-sm whitespace-nowrap shrink-0 ml-1"
             >
               <span>मुहूर्त बुक करें</span>
             </Link>

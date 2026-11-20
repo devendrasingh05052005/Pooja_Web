@@ -101,7 +101,7 @@ export default function RootLayout({
         "@id": `${siteConfig.url}/#pandit`,
         name: "Pandit Gopal Krishna Shastri",
         alternateName: "पंडित गोपाल कृष्ण शास्त्री",
-        jobTitle: "Vedic Priest & Astrologer (वैदिक पुरोहित)",
+        jobTitle: "Vedic Priest & Astrologer (वैदिक आचार्य)",
         description: "10+ years experienced Vedic priest conducting Kaal Sarp, Mangal Dosh Bhat Puja, Mahamrityunjay Jaap in Ujjain.",
         address: {
           "@type": "PostalAddress",

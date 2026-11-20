@@ -11,7 +11,7 @@ export default function TrustSection() {
           <div className="lg:col-span-7 space-y-6">
             <div className="inline-flex items-center gap-2 bg-amber-100 text-amber-900 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
               <ShieldCheck className="w-4 h-4 text-emerald-600" />
-              <span>प्रमाणित वैदिक पुरोहित उज्जैन</span>
+              <span>प्रमाणित वैदिक आचार्य उज्जैन</span>
             </div>
 
             <h2 className="text-2xl sm:text-4xl font-extrabold text-stone-900 tracking-tight leading-snug">
@@ -22,7 +22,7 @@ export default function TrustSection() {
             </h2>
 
             <p className="text-stone-600 text-sm sm:text-base leading-relaxed">
-              पंडित गोपाल कृष्ण शास्त्री जी अवंतिका नगरी (उज्जैन) के सुप्रसिद्ध वैदिक विद्वान एवं पुरोहित हैं। पिछले 10+ वर्षों से वे भगवान श्री महाकालेश्वर ज्योतिर्लिंग, मंगलनाथ धाम, एवं सिद्धवट पर शास्त्रोक्त कालसर्प दोष निवारण, मंगल भात पूजा, महामृत्युंजय जाप और वैवाहिक दोष शांति संपन्न करा रहे हैं।
+              पंडित गोपाल कृष्ण शास्त्री जी अवंतिका नगरी (उज्जैन) के सुप्रसिद्ध वैदिक विद्वान एवं आचार्य हैं। पिछले 10+ वर्षों से वे भगवान श्री महाकालेश्वर ज्योतिर्लिंग, मंगलनाथ धाम, एवं सिद्धवट पर शास्त्रोक्त कालसर्प दोष निवारण, मंगल भात पूजा, महामृत्युंजय जाप और वैवाहिक दोष शांति संपन्न करा रहे हैं।
             </p>
 
             {/* Core Trust Pillars */}

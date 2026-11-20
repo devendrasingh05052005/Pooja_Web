@@ -114,7 +114,7 @@ export default function UjjainPanditBookingPage() {
             <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
               <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md text-amber-300 border border-amber-400/30 px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold">
                 <ShieldCheck className="w-4 h-4 text-emerald-400" />
-                <span>100% प्रामाणिक एवं अनुभवी वैदिक पुरोहित | उज्जैन धाम</span>
+                <span>100% प्रामाणिक एवं अनुभवी वैदिक आचार्य | उज्जैन धाम</span>
               </div>
 
               <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
@@ -338,7 +338,7 @@ export default function UjjainPanditBookingPage() {
                 यदि हम उज्जैन न आ सकें, तो क्या ऑनलाइन संकल्प पूजा मान्य है?
               </h4>
               <p className="text-xs sm:text-sm text-stone-600 mt-2 leading-relaxed">
-                शास्त्रों में यजमान के नाम, गोत्र और नक्षत्र से पुरोहित द्वारा प्रतिनिधि संकल्प का पूर्ण फल वर्णित है। पंडित जी द्वारा लाइव वीडियो कॉल पर संकल्प कराया जाता है और पूजन उपरांत महाप्रसाद व रक्षासूत्र कूरियर से भेजा जाता है।
+                शास्त्रों में यजमान के नाम, गोत्र और नक्षत्र से आचार्य द्वारा प्रतिनिधि संकल्प का पूर्ण फल वर्णित है। पंडित जी द्वारा लाइव वीडियो कॉल पर संकल्प कराया जाता है और पूजन उपरांत महाप्रसाद व रक्षासूत्र कूरियर से भेजा जाता है।
               </p>
             </div>
           </div>
