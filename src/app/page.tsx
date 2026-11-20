@@ -133,18 +133,18 @@ export default function HomePage() {
       {/* Sacred Tirth Sthals of Ujjain */}
       <UjjainTirthInfo />
 
-      {/* Top 10 Searched Pooja Keywords & Direct Links */}
+      {/* Special Pooja Services & Direct Links */}
       <section className="py-12 bg-amber-50/70 border-y border-amber-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-6">
             <span className="text-xs font-bold text-amber-800 uppercase tracking-widest bg-amber-200/80 px-3 py-1 rounded-full">
-              Google Top Searched Services
+              विशेष वैदिक सेवाएं
             </span>
             <h3 className="text-xl sm:text-2xl font-extrabold text-stone-900 mt-2">
-              उज्जैन की सर्वाधिक खोजी जाने वाली प्रमुख वैदिक पूजाएं
+              हमारी विशेष पूजाएं एवं वैदिक सेवाएं
             </h3>
             <p className="text-stone-600 text-xs sm:text-sm mt-1">
-              Google पर यजमानों द्वारा सबसे ज्यादा खोजी जाने वाली पूजाएं एवं सीधे स्लॉट बुकिंग लिंक्स:
+              पंडित गोपाल कृष्ण शास्त्री जी द्वारा उज्जैन में शास्त्रोक्त विधि से संपन्न की जाने वाली प्रमुख वैदिक पूजाएं एवं सीधी बुकिंग:
             </p>
           </div>
 

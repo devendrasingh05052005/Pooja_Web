@@ -134,7 +134,7 @@ export default function Footer() {
         {/* Top 10 Searched Keywords SEO Block */}
         <div className="mt-12 pt-6 border-t border-stone-800/80">
           <div className="text-[11px] font-bold text-amber-500 uppercase tracking-widest mb-3">
-            Google पर सर्वाधिक खोजी जाने वाली सेवाएं (Popular Searches):
+            हमारी प्रमुख वैदिक सेवाएं एवं अनुष्ठान (Special Pooja Services):
           </div>
           <div className="flex flex-wrap gap-2 text-[11px] text-stone-400">
             <Link href="/ujjain-pandit-booking" className="hover:text-amber-300">Ujjain Pandit Booking</Link> •
