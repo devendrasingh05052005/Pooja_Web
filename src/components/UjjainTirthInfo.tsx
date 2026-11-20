@@ -22,24 +22,24 @@ export default function UjjainTirthInfo() {
       highlight: "कालसर्प दोष निवारण एवं नाग पूजा",
     },
     {
-      title: "सिद्धवट तीर्थ (Siddhavat Mandir)",
-      subtitle: "पितृ मोक्ष, त्रिपिंडी श्राद्ध एवं नारायण बलि का महातीर्थ",
+      title: "श्री सिद्धवट धाम (Siddhavat Mandir)",
+      subtitle: "पितृ मोक्ष, त्रिपिंडी श्राद्ध एवं नारायण बलि का परम सिद्ध धाम",
       desc: "प्रयाग के अक्षयवट और गया के वटवृक्ष के समान सिद्धवट पर पिंडदान करने से सात पीढ़ियों के पितरों को सद्गति मिलती है। पितृ दोष निवारण और वंश वृद्धि हेतु यह सर्वोत्तम स्थल है।",
       highlight: "पितृ दोष शांति एवं नारायण बलि",
     },
   ];
 
   return (
-    <section id="ujjain-tirth" className="py-16 sm:py-24 bg-gradient-to-b from-white via-amber-50/40 to-white">
+    <section id="ujjain-dham" className="py-16 sm:py-24 bg-gradient-to-b from-white via-amber-50/40 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-14">
           <div className="inline-flex items-center gap-2 bg-amber-100 text-amber-900 px-4 py-1 rounded-full text-xs font-semibold mb-3">
             <Sparkles className="w-3.5 h-3.5 text-vedic-saffron" />
-            <span>अवंतिका तीर्थ महात्म्य</span>
+            <span>अवंतिका पावन महिमा</span>
           </div>
 
           <h2 className="text-2xl sm:text-4xl font-extrabold text-stone-900 tracking-tight">
-            उज्जैन के <span className="text-vedic-saffron">प्रमुख सिद्ध तीर्थ स्थल</span>
+            उज्जैन के <span className="text-vedic-saffron">प्रमुख सिद्ध धार्मिक स्थल</span>
           </h2>
           <p className="mt-3 text-stone-600 text-sm sm:text-base">
             उज्जैन पृथ्वी का नाभि स्थल और काल-गणना का केंद्र है। जानिए किस पूजा के लिए कौन सा स्थल शास्त्रों में सर्वश्रेष्ठ बताया गया है।

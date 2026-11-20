@@ -145,7 +145,7 @@ export default function ServicePage({ params }: Props) {
         <div className="max-w-7xl mx-auto">
           <div className="inline-flex items-center gap-2 bg-amber-400/20 text-amber-300 px-3.5 py-1 rounded-full text-xs font-semibold mb-3 border border-amber-400/30">
             <Sparkles className="w-3.5 h-3.5 text-amber-300" />
-            <span>{service.badgeHindi} | उज्जैन सिद्ध तीर्थ</span>
+            <span>{service.badgeHindi} | उज्जैन सिद्ध धाम</span>
           </div>
 
           <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight">
@@ -209,7 +209,7 @@ export default function ServicePage({ params }: Props) {
               <div className="mt-6 bg-amber-50/70 p-4 rounded-2xl border border-amber-200/60">
                 <h3 className="font-bold text-stone-900 text-sm flex items-center gap-1.5">
                   <Sparkles className="w-4 h-4 text-vedic-saffron" />
-                  यह पूजा उज्जैन तीर्थ में ही क्यों विशेष फलदायी है?
+                  यह पूजा उज्जैन धाम में ही क्यों विशेष फलदायी है?
                 </h3>
                 <p className="text-xs sm:text-sm text-stone-600 mt-1.5 leading-relaxed">
                   {service.whyInUjjain}

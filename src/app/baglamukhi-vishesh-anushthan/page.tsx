@@ -166,7 +166,7 @@ export default function BaglamukhiSpecialPage() {
                     <ShieldCheck className="w-4 h-4 text-emerald-400" />
                   </div>
                   <div className="text-xs text-yellow-300 font-semibold">
-                    18+ वर्षों का शाक्त व वैदिक अनुष्ठान अनुभव
+                    10+ वर्षों का शाक्त व वैदिक अनुष्ठान अनुभव
                   </div>
                   <div className="text-[11px] text-stone-300">
                     उज्जैन आश्रम एवं मां बगलामुखी सिद्ध पीठ क्षेत्र

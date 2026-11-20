@@ -74,7 +74,7 @@ export default function PoojaIconGrid() {
         <div className="text-center max-w-3xl mx-auto mb-14">
           <div className="inline-flex items-center gap-2 bg-amber-100 text-amber-900 px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold mb-3 border border-amber-200">
             <span className="w-2 h-2 rounded-full bg-vedic-saffron animate-pulse"></span>
-            श्री अवंतिका तीर्थ (उज्जैन) - प्रमाणित सेवाएं
+            श्री अवंतिका नगरी (उज्जैन) - प्रमाणित सेवाएं
           </div>
 
           <h2 className="text-2xl sm:text-4xl font-extrabold text-stone-900 tracking-tight">

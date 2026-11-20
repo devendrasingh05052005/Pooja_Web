@@ -28,9 +28,9 @@ export const siteConfig = {
         "जय श्री महाकाल पंडित जी! मुझे अपनी जन्म कुंडली दिखाकर उज्जैन में पूजा के शुभ मुहूर्त के संबंध में निःशुल्क परामर्श चाहिए।",
     },
   },
-  experienceYears: 18,
-  poojaCompletedCount: "11,000+",
-  satisfiedYatriCount: "25,000+",
+  experienceYears: 10,
+  poojaCompletedCount: "1,000+",
+  satisfiedYatriCount: "3,000+",
   socialProof: {
     rating: 4.9,
     reviewsCount: 1420,

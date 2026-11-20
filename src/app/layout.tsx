@@ -76,6 +76,16 @@ export const metadata: Metadata = {
   alternates: {
     canonical: siteConfig.url,
   },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon.png", type: "image/png" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
@@ -92,7 +102,7 @@ export default function RootLayout({
         name: "Pandit Gopal Krishna Shastri",
         alternateName: "पंडित गोपाल कृष्ण शास्त्री",
         jobTitle: "Vedic Priest & Astrologer (वैदिक पुरोहित)",
-        description: "18+ years experienced Vedic priest conducting Kaal Sarp, Mangal Dosh Bhat Puja, Mahamrityunjay Jaap in Ujjain.",
+        description: "10+ years experienced Vedic priest conducting Kaal Sarp, Mangal Dosh Bhat Puja, Mahamrityunjay Jaap in Ujjain.",
         address: {
           "@type": "PostalAddress",
           streetAddress: siteConfig.contact.address.line1,

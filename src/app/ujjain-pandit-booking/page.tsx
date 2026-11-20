@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Ujjain Pandit Booking | Verified Vedic Purohit Pandit Gopal Krishna Shastri",
     description:
-      "Book 18+ years experienced Vedic Pandit in Ujjain for authentic Kaal Sarp, Mangal Dosh, and all Vedic rituals. Transparent dakshina, in-person and online sankalp.",
+      "Book 10+ years experienced Vedic Pandit in Ujjain for authentic Kaal Sarp, Mangal Dosh, and all Vedic rituals. Transparent dakshina, in-person and online sankalp.",
     url: `${siteConfig.url}/ujjain-pandit-booking`,
     type: "website",
   },
@@ -125,7 +125,7 @@ export default function UjjainPanditBookingPage() {
               </h1>
 
               <p className="text-stone-300 text-sm sm:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                भगवान श्री महाकालेश्वर एवं मंगलनाथ की पावन नगरी उज्जैन में कालसर्प दोष, मंगल भात पूजा, महामृत्युंजय जाप, रुद्राभिषेक एवं समस्त वैदिक अनुष्ठानों हेतु 18+ वर्षों के अनुभवी वैदिक विद्वान <strong>पंडित गोपाल कृष्ण शास्त्री जी</strong> से सीधे संपर्क कर शुभ मुहूर्त एवं पूजा स्लॉट बुक करें।
+                भगवान श्री महाकालेश्वर एवं मंगलनाथ की पावन नगरी उज्जैन में कालसर्प दोष, मंगल भात पूजा, महामृत्युंजय जाप, रुद्राभिषेक एवं समस्त वैदिक अनुष्ठानों हेतु 10+ वर्षों के अनुभवी वैदिक विद्वान <strong>पंडित गोपाल कृष्ण शास्त्री जी</strong> से सीधे संपर्क कर शुभ मुहूर्त एवं पूजा स्लॉट बुक करें।
               </p>
 
               {/* Verified Profile Card */}
@@ -143,7 +143,7 @@ export default function UjjainPanditBookingPage() {
                     <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
                   </div>
                   <div className="text-xs text-amber-300 font-semibold mt-0.5">
-                    शुक्ल यजुर्वेद आचार्य | 18+ वर्ष का अनुभव
+                    शुक्ल यजुर्वेद आचार्य | 10+ वर्ष का अनुभव
                   </div>
                   <div className="flex items-center gap-1 text-[11px] text-stone-300 mt-1">
                     <Star className="w-3.5 h-3.5 text-yellow-400 fill-yellow-400" />

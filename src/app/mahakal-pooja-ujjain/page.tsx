@@ -113,7 +113,7 @@ export default function MahakalPoojaUjjainPage() {
             <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
               <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md text-amber-300 border border-amber-400/30 px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold">
                 <Sparkles className="w-4 h-4 text-amber-300" />
-                <span>द्वादश ज्योतिर्लिंग तीर्थ | दक्षिणामुखी श्री महाकालेश्वर धाम</span>
+                <span>द्वादश ज्योतिर्लिंग धाम | दक्षिणामुखी श्री महाकालेश्वर क्षेत्र</span>
               </div>
 
               <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">

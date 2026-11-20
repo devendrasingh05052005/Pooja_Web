@@ -31,7 +31,7 @@ export default function Footer() {
 
             <div className="flex items-center gap-2 text-xs text-emerald-400 font-semibold bg-white/5 p-2.5 rounded-lg border border-white/10">
               <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
-              <span>प्रमाणित वैदिक पुरोहित | 18+ वर्ष का अनुभव</span>
+              <span>प्रमाणित वैदिक पुरोहित | 10+ वर्ष का अनुभव</span>
             </div>
 
             <div className="pt-1">
