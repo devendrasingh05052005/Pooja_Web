@@ -49,42 +49,42 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Main Navbar - 100% Flexible Layout */}
+      {/* Main Navbar - 100% Single Line, Perfectly Aligned */}
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center min-h-[4.5rem] py-2 gap-2 sm:gap-4">
+        <div className="flex justify-between items-center h-16 sm:h-20 gap-2">
           {/* Logo & Brand Identity */}
-          <Link href="/" className="flex items-center gap-2 sm:gap-3 group shrink-0">
-            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-vedic-saffron to-amber-500 flex items-center justify-center text-white font-bold text-xl sm:text-2xl shadow-md border-2 border-amber-200 group-hover:scale-105 transition-transform shrink-0">
+          <Link href="/" className="flex items-center gap-2 group shrink-0">
+            <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-gradient-to-br from-vedic-saffron to-amber-500 flex items-center justify-center text-white font-bold text-xl shadow-md border-2 border-amber-200 group-hover:scale-105 transition-transform shrink-0">
               ॐ
             </div>
             <div>
-              <div className="flex items-center gap-1.5">
-                <span className="font-extrabold text-base sm:text-lg xl:text-xl text-stone-900 group-hover:text-vedic-saffron transition whitespace-nowrap">
+              <div className="flex items-center gap-1">
+                <span className="font-extrabold text-sm sm:text-base xl:text-lg text-stone-900 group-hover:text-vedic-saffron transition whitespace-nowrap">
                   {siteConfig.name}
                 </span>
                 <span title="प्रमाणित वैदिक पुरोहित">
-                  <ShieldCheck className="w-4 h-4 text-emerald-600 inline" />
+                  <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 inline" />
                 </span>
               </div>
-              <p className="text-[10px] sm:text-xs text-amber-800 font-medium whitespace-nowrap">
+              <p className="text-[10px] sm:text-xs text-amber-800 font-medium whitespace-nowrap hidden sm:block">
                 श्री महाकाल एवं मंगलनाथ क्षेत्र | वैदिक पुरोहित उज्जैन
               </p>
             </div>
           </Link>
 
-          {/* Desktop Navigation Links - Fully flexible and language-adaptive */}
-          <nav className="hidden lg:flex items-center justify-end gap-1.5 xl:gap-2.5 2xl:gap-4 flex-wrap max-w-full">
+          {/* Desktop Navigation Links - Single Row, No Wrap, All Same Level */}
+          <nav className="hidden lg:flex items-center justify-end gap-1 xl:gap-2 2xl:gap-3.5 flex-nowrap shrink-0">
             <Link
               href="/"
               className="text-stone-700 hover:text-vedic-saffron hover:bg-amber-50/60 font-semibold transition text-xs xl:text-sm px-2 py-1 rounded-md whitespace-nowrap"
             >
-              {t.home}
+              मुख्य पृष्ठ
             </Link>
 
             {/* Special Highlight: Baglamukhi Vishesh Anushthan Dedicated Page */}
             <Link
               href="/baglamukhi-vishesh-anushthan"
-              className="bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600 hover:brightness-110 text-white font-extrabold px-2.5 py-1 rounded-full shadow-xs text-xs flex items-center gap-1.5 border border-yellow-300 transition transform hover:scale-105 whitespace-nowrap shrink-0"
+              className="bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600 hover:brightness-110 text-white font-extrabold px-2.5 py-1 rounded-full shadow-xs text-xs flex items-center gap-1 border border-yellow-300 transition transform hover:scale-105 whitespace-nowrap shrink-0"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-white animate-ping"></span>
               <span>⭐ बगलामुखी अनुष्ठान</span>
@@ -94,10 +94,10 @@ export default function Navbar() {
             <div className="relative group">
               <button
                 type="button"
-                className="flex items-center gap-1 text-stone-700 hover:text-vedic-saffron hover:bg-amber-50/60 font-semibold transition text-xs xl:text-sm px-2 py-1 rounded-md whitespace-nowrap"
+                className="flex items-center gap-0.5 text-stone-700 hover:text-vedic-saffron hover:bg-amber-50/60 font-semibold transition text-xs xl:text-sm px-2 py-1 rounded-md whitespace-nowrap"
                 onClick={() => setServicesOpen(!servicesOpen)}
               >
-                <span>{t.services}</span>
+                <span>पूजन सेवाएं</span>
                 <ChevronDown className="w-3.5 h-3.5 group-hover:rotate-180 transition-transform" />
               </button>
 
@@ -137,22 +137,22 @@ export default function Navbar() {
               href="/about-pandit-ji"
               className="text-stone-700 hover:text-vedic-saffron hover:bg-amber-50/60 font-semibold transition text-xs xl:text-sm px-2 py-1 rounded-md whitespace-nowrap"
             >
-              {t.about}
+              पंडित जी
             </Link>
 
             <Link
               href="/#faqs"
               className="text-stone-700 hover:text-vedic-saffron hover:bg-amber-50/60 font-semibold transition text-xs xl:text-sm px-2 py-1 rounded-md whitespace-nowrap"
             >
-              {t.faq}
+              FAQ
             </Link>
 
-            {/* Quick CTA */}
+            {/* Quick CTA Button - Perfectly in line */}
             <Link
               href="/#book"
-              className="bg-gradient-to-r from-vedic-saffron to-amber-600 hover:from-amber-600 hover:to-vedic-saffron text-white font-bold px-3 py-1.5 xl:px-4 xl:py-2 rounded-lg shadow-sm hover:shadow-md transition transform hover:-translate-y-0.5 text-xs xl:text-sm whitespace-nowrap shrink-0"
+              className="bg-gradient-to-r from-vedic-saffron to-amber-600 hover:from-amber-600 hover:to-vedic-saffron text-white font-bold px-3 py-1.5 xl:px-4 xl:py-2 rounded-lg shadow-sm hover:shadow-md transition transform hover:-translate-y-0.5 text-xs xl:text-sm whitespace-nowrap shrink-0 ml-1"
             >
-              <span>{t.bookSlot}</span>
+              <span>मुहूर्त बुक करें</span>
             </Link>
           </nav>
 
