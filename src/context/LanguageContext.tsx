@@ -337,7 +337,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
           if (combo) {
             if (combo.value !== saved) {
               combo.value = saved;
-              combo.dispatchEvent(new Event("change"));
+              combo.dispatchEvent(new Event("change", { bubbles: true, cancelable: true }));
             }
             clearInterval(interval);
           }
@@ -349,38 +349,86 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
 
   const handleSetLanguage = (lang: LanguageCode) => {
     setCurrentLanguage(lang);
-    if (typeof window !== "undefined") {
-      localStorage.setItem("preferred_pooja_lang", lang);
+    if (typeof window === "undefined") return;
 
-      // Trigger whole-site Google Translation across ALL pages
-      const cookieVal = lang === "hi" ? "" : `/hi/${lang}`;
-      const hostname = window.location.hostname;
-      const domainParts = hostname.split(".");
-      const isLocalhost = hostname === "localhost" || hostname === "127.0.0.1";
+    localStorage.setItem("preferred_pooja_lang", lang);
 
-      if (lang === "hi") {
-        document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-        if (!isLocalhost && domainParts.length > 1) {
-          const rootDomain = domainParts.slice(-2).join(".");
-          document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.${rootDomain};`;
-          document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.${hostname};`;
+    const hostname = window.location.hostname;
+    const domainParts = hostname.split(".");
+    const isLocalhost = hostname === "localhost" || hostname === "127.0.0.1";
+    const rootDomain = !isLocalhost && domainParts.length > 1 ? domainParts.slice(-2).join(".") : "";
+
+    if (lang === "hi") {
+      // 1. Thoroughly clear googtrans cookies across all domains and paths
+      const domains = ["", hostname, `.${hostname}`];
+      if (rootDomain) {
+        domains.push(rootDomain, `.${rootDomain}`);
+      }
+      const paths = ["/", window.location.pathname];
+      domains.forEach((d) => {
+        paths.forEach((p) => {
+          document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=${p};${d ? ` domain=${d};` : ""}`;
+        });
+      });
+
+      // 2. Attempt in-place restore via native Google Translate frame
+      let restoredInPlace = false;
+      try {
+        const frames = document.querySelectorAll("iframe.goog-te-banner-frame, iframe.goog-te-menu-frame");
+        for (let f = 0; f < frames.length; f++) {
+          const frame = frames[f] as HTMLIFrameElement;
+          const innerDoc = frame.contentDocument || frame.contentWindow?.document;
+          if (innerDoc) {
+            const buttons = innerDoc.getElementsByTagName("button");
+            for (let b = 0; b < buttons.length; b++) {
+              const btn = buttons[b];
+              if (
+                btn.id?.includes("restore") ||
+                btn.innerText?.includes("Restore") ||
+                btn.textContent?.includes("Restore")
+              ) {
+                btn.click();
+                restoredInPlace = true;
+                break;
+              }
+            }
+          }
         }
-      } else {
-        document.cookie = `googtrans=${cookieVal}; path=/;`;
-        if (!isLocalhost && domainParts.length > 1) {
-          const rootDomain = domainParts.slice(-2).join(".");
-          document.cookie = `googtrans=${cookieVal}; path=/; domain=.${rootDomain};`;
-          document.cookie = `googtrans=${cookieVal}; path=/; domain=.${hostname};`;
-        }
+      } catch (e) {
+        // Cross-origin restriction fallback
       }
 
-      // Check if Google Translate widget dropdown is ready in DOM
+      // 3. Reset the .goog-te-combo dropdown with bubbling change event
       const combo = document.querySelector(".goog-te-combo") as HTMLSelectElement | null;
       if (combo) {
-        combo.value = lang === "hi" ? "" : lang;
-        combo.dispatchEvent(new Event("change"));
+        combo.selectedIndex = 0;
+        combo.value = "";
+        combo.dispatchEvent(new Event("change", { bubbles: true, cancelable: true }));
+      }
+
+      // 4. Verify in-place restore. If translation classes still linger, reload automatically so user never has to press refresh!
+      setTimeout(() => {
+        const stillTranslated =
+          document.documentElement.classList.contains("translated-ltr") ||
+          document.documentElement.classList.contains("translated-rtl");
+        if (!restoredInPlace || stillTranslated) {
+          window.location.reload();
+        }
+      }, 100);
+    } else {
+      // For other languages (en, mr, gu, te, ta, bn, kn, ml, pa)
+      const cookieVal = `/hi/${lang}`;
+      document.cookie = `googtrans=${cookieVal}; path=/;`;
+      if (rootDomain) {
+        document.cookie = `googtrans=${cookieVal}; path=/; domain=.${rootDomain};`;
+        document.cookie = `googtrans=${cookieVal}; path=/; domain=.${hostname};`;
+      }
+
+      const combo = document.querySelector(".goog-te-combo") as HTMLSelectElement | null;
+      if (combo) {
+        combo.value = lang;
+        combo.dispatchEvent(new Event("change", { bubbles: true, cancelable: true }));
       } else {
-        // Reload to let Google translate render the whole page in the new language
         window.location.reload();
       }
     }
