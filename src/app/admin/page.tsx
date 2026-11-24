@@ -30,7 +30,7 @@ export default function AdminPage() {
       setAuthenticated(true);
       fetchLeads();
     } else {
-      alert("गलत पासवर्ड! कृपया सही पिन दर्ज करें। (Default PIN: 1008)");
+      alert("गलत पासवर्ड! कृपया सही सुरक्षा पिन दर्ज करें।");
     }
   };
 
@@ -77,7 +77,7 @@ export default function AdminPage() {
           <form onSubmit={handleLogin} className="space-y-4">
             <input
               type="password"
-              placeholder="सुरक्षा पिन दर्ज करें (Default: 1008)"
+              placeholder="सुरक्षा पिन दर्ज करें"
               value={pin}
               onChange={(e) => setPin(e.target.value)}
               className="w-full text-center tracking-widest text-lg font-bold border-2 border-stone-300 focus:border-vedic-saffron rounded-xl p-3 outline-none"
@@ -91,10 +91,6 @@ export default function AdminPage() {
               लॉगिन करें (Login)
             </button>
           </form>
-
-          <p className="text-[11px] text-stone-400">
-            नोट: डिफॉल्ट पिन <strong className="text-stone-700">1008</strong> या <strong className="text-stone-700">mahakal</strong> है।
-          </p>
         </div>
       </div>
     );
