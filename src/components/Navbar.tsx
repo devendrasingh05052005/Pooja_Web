@@ -147,6 +147,14 @@ export default function Navbar() {
               पंडित जी
             </Link>
 
+            <Link
+              href="/gallery"
+              className="text-stone-700 hover:text-vedic-saffron hover:bg-amber-50/60 font-semibold transition text-xs xl:text-sm px-1.5 py-1 xl:px-2 rounded-md whitespace-nowrap flex items-center gap-1"
+            >
+              <span>गैलरी</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+            </Link>
+
             {/* FAQ - Marked notranslate so it stays 3 letters in all languages */}
             <Link
               href="/#faqs"
@@ -156,9 +164,9 @@ export default function Navbar() {
               FAQ
             </Link>
 
-            {/* Quick CTA Button - Always visible and never overflowing */}
+            {/* Quick CTA Button - Points to dedicated /book */}
             <Link
-              href="/#book"
+              href="/book"
               className="bg-gradient-to-r from-vedic-saffron to-amber-600 hover:from-amber-600 hover:to-vedic-saffron text-white font-bold px-2.5 py-1.5 xl:px-3.5 xl:py-2 rounded-lg shadow-sm hover:shadow-md transition transform hover:-translate-y-0.5 text-xs xl:text-sm whitespace-nowrap shrink-0 ml-1"
             >
               <span>मुहूर्त बुक करें</span>
@@ -168,7 +176,7 @@ export default function Navbar() {
           {/* Mobile Menu Button */}
           <div className="lg:hidden flex items-center gap-2 shrink-0">
             <Link
-              href="/#book"
+              href="/book"
               className="bg-vedic-saffron text-white text-xs font-bold px-3 py-2 rounded-lg shadow whitespace-nowrap"
             >
               बुकिंग
@@ -251,6 +259,15 @@ export default function Navbar() {
             </Link>
 
             <Link
+              href="/gallery"
+              onClick={() => setIsOpen(false)}
+              className="px-3 py-2 rounded-lg text-stone-800 font-bold hover:bg-amber-50 flex items-center justify-between"
+            >
+              <span>📸 फोटो व वीडियो गैलरी</span>
+              <span className="text-[10px] bg-amber-100 text-amber-900 px-2 py-0.5 rounded-full font-bold">New</span>
+            </Link>
+
+            <Link
               href="/#faqs"
               onClick={() => setIsOpen(false)}
               className="px-3 py-2 rounded-lg text-stone-800 font-bold hover:bg-amber-50"
@@ -259,7 +276,7 @@ export default function Navbar() {
             </Link>
 
             <Link
-              href="/#book"
+              href="/book"
               onClick={() => setIsOpen(false)}
               className="mt-2 text-center bg-gradient-to-r from-vedic-saffron to-amber-600 text-white font-bold py-3 rounded-lg shadow-md"
             >

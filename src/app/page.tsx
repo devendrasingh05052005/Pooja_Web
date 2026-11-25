@@ -1,10 +1,11 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { siteConfig } from "@/config/site";
 import PoojaIconGrid from "@/components/PoojaIconGrid";
 import TrustSection from "@/components/TrustSection";
-import BookingForm from "@/components/BookingForm";
+import HeroGallery from "@/components/HeroGallery";
 import UjjainTirthInfo from "@/components/UjjainTirthInfo";
 import FaqSection from "@/components/FaqSection";
 import { useLanguage } from "@/context/LanguageContext";
@@ -17,6 +18,11 @@ import {
   MapPin,
   CheckCircle2,
   Award,
+  Star,
+  Flame,
+  ArrowRight,
+  Clock,
+  Video,
 } from "lucide-react";
 
 export default function HomePage() {
@@ -90,13 +96,13 @@ export default function HomePage() {
 
               {/* CTA Buttons */}
               <div className="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
-                <a
-                  href="#book"
+                <Link
+                  href="/book"
                   className="w-full sm:w-auto bg-gradient-to-r from-vedic-saffron to-amber-500 hover:from-amber-500 hover:to-vedic-saffron text-white font-extrabold px-8 py-4 rounded-xl shadow-xl hover:shadow-2xl transition transform hover:-translate-y-0.5 text-center text-sm sm:text-base flex items-center justify-center gap-2"
                 >
                   <Calendar className="w-5 h-5" />
                   <span>{t.bookSlot}</span>
-                </a>
+                </Link>
 
                 <a
                   href={generalWhatsappUrl}
@@ -116,9 +122,9 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Right Card: Quick Booking Hero Box */}
+            {/* Right Card: Compact Dynamic Hero Gallery Showcase (Photo & Video Carousel with Mini Thumbnails) */}
             <div className="lg:col-span-5">
-              <BookingForm source="hero_section" />
+              <HeroGallery />
             </div>
           </div>
         </div>
@@ -149,98 +155,120 @@ export default function HomePage() {
           </div>
 
           <div className="flex flex-wrap justify-center gap-2.5 sm:gap-3 text-xs sm:text-sm font-medium">
-            <a
+            <Link
               href="/ujjain-pandit-booking"
               className="bg-amber-100 hover:bg-amber-200 text-amber-950 font-bold px-4 py-2 rounded-xl shadow-xs border border-amber-300 transition"
             >
               ✨ उज्जैन पंडित बुकिंग (Ujjain Pandit Booking)
-            </a>
-            <a
+            </Link>
+            <Link
               href="/mahakal-pooja-ujjain"
               className="bg-amber-100 hover:bg-amber-200 text-amber-950 font-bold px-4 py-2 rounded-xl shadow-xs border border-amber-300 transition"
             >
               🕉️ महाकाल पूजा एवं रुद्राभिषेक (Mahakal Pooja)
-            </a>
-            <a
+            </Link>
+            <Link
               href="/services/kaal-sarp-dosh-puja-ujjain"
               className="bg-white hover:bg-vedic-saffron hover:text-white text-stone-800 px-4 py-2 rounded-xl shadow-xs border border-amber-200 transition"
             >
               🔱 कालसर्प दोष पूजा उज्जैन (Kaal Sarp Puja)
-            </a>
-            <a
+            </Link>
+            <Link
               href="/services/mangal-dosh-puja-ujjain"
               className="bg-white hover:bg-vedic-saffron hover:text-white text-stone-800 px-4 py-2 rounded-xl shadow-xs border border-amber-200 transition"
             >
               🔴 मंगलनाथ भात पूजा (Mangal Dosh Puja)
-            </a>
-            <a
+            </Link>
+            <Link
               href="/baglamukhi-vishesh-anushthan"
               className="bg-gradient-to-r from-yellow-500 to-amber-500 text-stone-950 font-bold px-4 py-2 rounded-xl shadow-sm border border-yellow-400 transition hover:scale-105"
             >
               ⭐ मां बगलामुखी विशेष अनुष्ठान (Court Case / शत्रु विजय)
-            </a>
-            <a
+            </Link>
+            <Link
               href="/services/mahamrityunjay-jaap-ujjain"
               className="bg-white hover:bg-vedic-saffron hover:text-white text-stone-800 px-4 py-2 rounded-xl shadow-xs border border-amber-200 transition"
             >
               🕉️ महामृत्युंजय मंत्र जाप उज्जैन
-            </a>
-            <a
+            </Link>
+            <Link
               href="/services/vastu-shanti-puja-ujjain"
               className="bg-white hover:bg-vedic-saffron hover:text-white text-stone-800 px-4 py-2 rounded-xl shadow-xs border border-amber-200 transition"
             >
               🏡 वास्तु शांति पूजन (Vastu Shanti Puja)
-            </a>
-            <a
+            </Link>
+            <Link
               href="/services/mool-nakshatra-shanti-puja-ujjain"
               className="bg-white hover:bg-vedic-saffron hover:text-white text-stone-800 px-4 py-2 rounded-xl shadow-xs border border-amber-200 transition"
             >
               ⭐ मूल नक्षत्र (गंडमूल) शांति पूजन
-            </a>
-            <a
+            </Link>
+            <Link
               href="/services/kumbh-vivah-puja-ujjain"
               className="bg-white hover:bg-vedic-saffron hover:text-white text-stone-800 px-4 py-2 rounded-xl shadow-xs border border-amber-200 transition"
             >
               💍 कुंभ विवाह पूजा (कन्या मांगलिक दोष)
-            </a>
-            <a
+            </Link>
+            <Link
               href="/services/ark-vivah-puja-ujjain"
               className="bg-white hover:bg-vedic-saffron hover:text-white text-stone-800 px-4 py-2 rounded-xl shadow-xs border border-amber-200 transition"
             >
               🌿 अर्क विवाह पूजन (वर मांगलिक दोष)
-            </a>
-            <a
+            </Link>
+            <Link
               href="/services/satyanarayan-katha-ujjain"
               className="bg-white hover:bg-vedic-saffron hover:text-white text-stone-800 px-4 py-2 rounded-xl shadow-xs border border-amber-200 transition"
             >
               📜 श्री सत्यनारायण कथा व हवन
-            </a>
-            <a
+            </Link>
+            <Link
               href="/services/pitra-dosh-puja-ujjain"
               className="bg-white hover:bg-vedic-saffron hover:text-white text-stone-800 px-4 py-2 rounded-xl shadow-xs border border-amber-200 transition"
             >
               🪔 पितृ दोष निवारण व नारायण बलि
-            </a>
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* Booking Form in dedicated container for anchored clicks */}
-      <section className="py-16 sm:py-24 bg-gradient-to-b from-amber-50/40 via-white to-amber-50/60">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8">
-            <span className="bg-amber-100 text-amber-900 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-              सरल एवं पारदर्शी प्रक्रिया
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-stone-900 mt-2">
-              अपनी पूजा का स्लॉट अभी आरक्षित करें
-            </h2>
-            <p className="text-xs sm:text-sm text-stone-600 mt-1">
-              फॉर्म भरते ही पंडित जी आपसे सीधे संपर्क करेंगे अथवा आप तुरंत WhatsApp पर जुड़ जाएंगे।
-            </p>
+
+
+      {/* Quick Booking CTA Banner */}
+      <section className="py-12 sm:py-16 bg-gradient-to-r from-amber-500 via-vedic-saffron to-amber-600 text-white shadow-inner">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+          <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-md px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold shadow-xs">
+            <Sparkles className="w-4 h-4 text-yellow-200" />
+            <span>उज्जैन में पूजा का श्रेष्ठ मुहूर्त अभी बुक करें</span>
           </div>
 
-          <BookingForm source="dedicated_section" />
+          <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight">
+            अपनी जन्म कुंडली अनुसार शुभ मुहूर्त एवं पूजन स्लॉट सुनिश्चित करें
+          </h2>
+
+          <p className="text-amber-100 text-xs sm:text-base max-w-2xl mx-auto leading-relaxed">
+            पंडित गोपाल कृष्ण शास्त्री जी से सीधे बात कर अथवा ऑनलाइन फॉर्म भरकर अपनी पूजा निश्चित करें। कोई बिचौलिया नहीं, सीधा आचार्य जी से संपर्क।
+          </p>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
+            <Link
+              href="/book"
+              className="w-full sm:w-auto bg-stone-900 hover:bg-black text-amber-300 font-extrabold px-8 py-4 rounded-xl shadow-2xl transition transform hover:scale-105 text-sm sm:text-base flex items-center justify-center gap-2"
+            >
+              <Calendar className="w-5 h-5 text-amber-400" />
+              <span>मुहूर्त व स्लॉट बुक करें</span>
+              <ArrowRight className="w-4 h-4 ml-1" />
+            </Link>
+
+            <a
+              href={generalWhatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto bg-white hover:bg-amber-50 text-stone-900 font-bold px-7 py-4 rounded-xl shadow-xl transition flex items-center justify-center gap-2 text-sm sm:text-base"
+            >
+              <MessageCircle className="w-5 h-5 text-[#25D366]" />
+              <span>WhatsApp पर परामर्श लें</span>
+            </a>
+          </div>
         </div>
       </section>
 
