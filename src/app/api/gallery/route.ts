@@ -1,9 +1,16 @@
 import { NextRequest, NextResponse } from "next/server";
 import fs from "fs";
 import path from "path";
+import { v2 as cloudinary } from "cloudinary";
+
+// Configure Cloudinary
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
 
 const GALLERY_FILE = path.join(process.cwd(), "data", "gallery.json");
-const UPLOAD_DIR = path.join(process.cwd(), "public", "uploads", "gallery");
 
 // Helper to convert YouTube URL to embed URL
 function getYouTubeEmbedUrl(url: string): string {
@@ -31,7 +38,6 @@ function getYouTubeEmbedUrl(url: string): string {
 function readGallery() {
   try {
     if (!fs.existsSync(GALLERY_FILE)) {
-      fs.writeFileSync(GALLERY_FILE, JSON.stringify([], null, 2), "utf-8");
       return [];
     }
     const data = fs.readFileSync(GALLERY_FILE, "utf-8");
@@ -52,6 +58,31 @@ function writeGallery(items: any[]) {
   } catch (err) {
     console.error("Error writing gallery data:", err);
   }
+}
+
+// Upload file buffer to Cloudinary
+async function uploadToCloudinary(
+  buffer: Buffer,
+  filename: string,
+  resourceType: "image" | "video" | "auto" = "auto"
+): Promise<string> {
+  return new Promise((resolve, reject) => {
+    const uploadStream = cloudinary.uploader.upload_stream(
+      {
+        folder: "pooja-gallery",
+        public_id: `${Date.now()}_${filename.replace(/[^a-zA-Z0-9._-]/g, "_")}`,
+        resource_type: resourceType,
+      },
+      (error, result) => {
+        if (error) {
+          reject(error);
+        } else {
+          resolve(result!.secure_url);
+        }
+      }
+    );
+    uploadStream.end(buffer);
+  });
 }
 
 // GET: Fetch all gallery items
@@ -91,20 +122,25 @@ export async function POST(req: NextRequest) {
         );
       }
 
-      // Handle uploaded file if present
+      // Handle uploaded file — upload to Cloudinary (not local disk)
       const file = formData.get("file") as File | null;
       if (file && file.size > 0) {
-        if (!fs.existsSync(UPLOAD_DIR)) {
-          fs.mkdirSync(UPLOAD_DIR, { recursive: true });
-        }
-
         const bytes = await file.arrayBuffer();
         const buffer = Buffer.from(bytes);
-        const safeName = `${Date.now()}_${file.name.replace(/[^a-zA-Z0-9._-]/g, "_")}`;
-        const filePath = path.join(UPLOAD_DIR, safeName);
-        fs.writeFileSync(filePath, buffer);
 
-        mediaUrl = `/uploads/gallery/${safeName}`;
+        // Determine resource type based on file mime type
+        const isVideo = file.type.startsWith("video/");
+        const resourceType = isVideo ? "video" : "image";
+
+        try {
+          mediaUrl = await uploadToCloudinary(buffer, file.name, resourceType);
+        } catch (uploadError: any) {
+          console.error("Cloudinary upload error:", uploadError);
+          return NextResponse.json(
+            { success: false, message: `Cloudinary अपलोड में त्रुटि: ${uploadError.message}` },
+            { status: 500 }
+          );
+        }
       }
     } else {
       // JSON body
@@ -140,9 +176,10 @@ export async function POST(req: NextRequest) {
       title: title.trim(),
       category: category.trim(),
       mediaUrl,
-      thumbnailUrl: type === "video" && videoEmbedUrl.includes("youtube.com/embed/")
-        ? `https://img.youtube.com/vi/${videoEmbedUrl.split("/embed/")[1]?.split("?")[0]}/hqdefault.jpg`
-        : mediaUrl,
+      thumbnailUrl:
+        type === "video" && videoEmbedUrl.includes("youtube.com/embed/")
+          ? `https://img.youtube.com/vi/${videoEmbedUrl.split("/embed/")[1]?.split("?")[0]}/hqdefault.jpg`
+          : mediaUrl,
       videoEmbedUrl,
       date: new Date().toISOString().split("T")[0],
       description: description.trim(),
