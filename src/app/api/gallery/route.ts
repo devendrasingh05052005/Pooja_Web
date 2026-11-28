@@ -1,6 +1,4 @@
 import { NextRequest, NextResponse } from "next/server";
-import fs from "fs";
-import path from "path";
 import { v2 as cloudinary } from "cloudinary";
 
 // Configure Cloudinary
@@ -9,8 +7,6 @@ cloudinary.config({
   api_key: process.env.CLOUDINARY_API_KEY,
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
-
-const GALLERY_FILE = path.join(process.cwd(), "data", "gallery.json");
 
 // Helper to convert YouTube URL to embed URL
 function getYouTubeEmbedUrl(url: string): string {
@@ -35,43 +31,40 @@ function getYouTubeEmbedUrl(url: string): string {
   return url;
 }
 
-function readGallery() {
-  try {
-    if (!fs.existsSync(GALLERY_FILE)) {
-      return [];
-    }
-    const data = fs.readFileSync(GALLERY_FILE, "utf-8");
-    return JSON.parse(data);
-  } catch (err) {
-    console.error("Error reading gallery data:", err);
-    return [];
-  }
-}
-
-function writeGallery(items: any[]) {
-  try {
-    const dir = path.dirname(GALLERY_FILE);
-    if (!fs.existsSync(dir)) {
-      fs.mkdirSync(dir, { recursive: true });
-    }
-    fs.writeFileSync(GALLERY_FILE, JSON.stringify(items, null, 2), "utf-8");
-  } catch (err) {
-    console.error("Error writing gallery data:", err);
-  }
-}
-
-// Upload file buffer to Cloudinary
+// Upload file buffer to Cloudinary with metadata stored as context
 async function uploadToCloudinary(
   buffer: Buffer,
   filename: string,
-  resourceType: "image" | "video" | "auto" = "auto"
+  resourceType: "image" | "video" | "auto" = "auto",
+  metadata: {
+    title: string;
+    category: string;
+    description: string;
+    isFeatured: boolean;
+    itemType: string;
+    itemId: string;
+    date: string;
+  }
 ): Promise<string> {
   return new Promise((resolve, reject) => {
+    // Encode metadata as Cloudinary context (key=value|key=value)
+    const contextStr = [
+      `title=${metadata.title.replace(/[|=]/g, " ")}`,
+      `category=${metadata.category.replace(/[|=]/g, " ")}`,
+      `description=${metadata.description.replace(/[|=]/g, " ")}`,
+      `isFeatured=${metadata.isFeatured}`,
+      `itemType=${metadata.itemType}`,
+      `itemId=${metadata.itemId}`,
+      `date=${metadata.date}`,
+    ].join("|");
+
     const uploadStream = cloudinary.uploader.upload_stream(
       {
         folder: "pooja-gallery",
-        public_id: `${Date.now()}_${filename.replace(/[^a-zA-Z0-9._-]/g, "_")}`,
+        public_id: metadata.itemId,
         resource_type: resourceType,
+        context: contextStr,
+        tags: ["pooja-gallery", metadata.category.replace(/\s+/g, "-"), metadata.itemType],
       },
       (error, result) => {
         if (error) {
@@ -85,9 +78,107 @@ async function uploadToCloudinary(
   });
 }
 
-// GET: Fetch all gallery items
+// Fetch all gallery items from Cloudinary using Search API
+async function fetchGalleryFromCloudinary() {
+  try {
+    // Search for all resources in pooja-gallery folder
+    const result = await cloudinary.search
+      .expression("folder:pooja-gallery")
+      .with_field("context")
+      .with_field("tags")
+      .sort_by("created_at", "desc")
+      .max_results(100)
+      .execute();
+
+    const items = result.resources.map((resource: any) => {
+      const ctx = resource.context?.custom || {};
+      const isYoutube = ctx.isYoutube === "true";
+      const isVideo = resource.resource_type === "video" || ctx.itemType === "video";
+
+      // For YouTube videos, use the stored URLs from context
+      // For uploaded files, use Cloudinary secure_url
+      const mediaUrl = isYoutube ? (ctx.mediaUrl || resource.secure_url) : resource.secure_url;
+      const videoEmbedUrl = isYoutube ? (ctx.videoEmbedUrl || "") : "";
+      const thumbnailUrl = isYoutube
+        ? (ctx.thumbnailUrl || "")
+        : isVideo
+          ? resource.secure_url.replace(/\.(mp4|mov|avi|webm)$/, ".jpg")
+          : resource.secure_url;
+
+      return {
+        id: ctx.itemId || resource.public_id,
+        type: ctx.itemType || (isVideo ? "video" : "photo"),
+        title: ctx.title || "वैदिक अनुष्ठान दर्शन",
+        category: ctx.category || "महाकाल पूजा",
+        mediaUrl,
+        thumbnailUrl,
+        videoEmbedUrl,
+        date: ctx.date || resource.created_at?.split("T")[0] || "",
+        description: ctx.description || "",
+        isFeatured: ctx.isFeatured === "true",
+      };
+    });
+
+    return items;
+  } catch (err) {
+    console.error("Error fetching from Cloudinary:", err);
+    return [];
+  }
+}
+
+// Store YouTube video metadata as a text asset in Cloudinary
+async function storeYouTubeVideo(metadata: {
+  title: string;
+  category: string;
+  description: string;
+  isFeatured: boolean;
+  itemId: string;
+  date: string;
+  mediaUrl: string;
+  videoEmbedUrl: string;
+  thumbnailUrl: string;
+}): Promise<void> {
+  // Upload a tiny transparent PNG as placeholder, with all metadata in context
+  const tinyPng = Buffer.from(
+    "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
+    "base64"
+  );
+
+  const contextStr = [
+    `title=${metadata.title.replace(/[|=]/g, " ")}`,
+    `category=${metadata.category.replace(/[|=]/g, " ")}`,
+    `description=${metadata.description.replace(/[|=]/g, " ")}`,
+    `isFeatured=${metadata.isFeatured}`,
+    `itemType=video`,
+    `itemId=${metadata.itemId}`,
+    `date=${metadata.date}`,
+    `mediaUrl=${metadata.mediaUrl.replace(/[|=]/g, " ")}`,
+    `videoEmbedUrl=${metadata.videoEmbedUrl.replace(/[|=]/g, " ")}`,
+    `thumbnailUrl=${metadata.thumbnailUrl.replace(/[|=]/g, " ")}`,
+    `isYoutube=true`,
+  ].join("|");
+
+  await new Promise<void>((resolve, reject) => {
+    const stream = cloudinary.uploader.upload_stream(
+      {
+        folder: "pooja-gallery",
+        public_id: metadata.itemId,
+        resource_type: "image",
+        context: contextStr,
+        tags: ["pooja-gallery", "youtube", "video", metadata.category.replace(/\s+/g, "-")],
+      },
+      (error) => {
+        if (error) reject(error);
+        else resolve();
+      }
+    );
+    stream.end(tinyPng);
+  });
+}
+
+// GET: Fetch all gallery items from Cloudinary
 export async function GET() {
-  const items = readGallery();
+  const items = await fetchGalleryFromCloudinary();
   return NextResponse.json({ success: true, items });
 }
 
@@ -122,22 +213,56 @@ export async function POST(req: NextRequest) {
         );
       }
 
-      // Handle uploaded file — upload to Cloudinary (not local disk)
+      const itemId = `gal_${Date.now()}_${Math.random().toString(36).substring(2, 6)}`;
+      const date = new Date().toISOString().split("T")[0];
+
+      // Handle uploaded file
       const file = formData.get("file") as File | null;
       if (file && file.size > 0) {
         const bytes = await file.arrayBuffer();
         const buffer = Buffer.from(bytes);
-
-        // Determine resource type based on file mime type
         const isVideo = file.type.startsWith("video/");
         const resourceType = isVideo ? "video" : "image";
 
         try {
-          mediaUrl = await uploadToCloudinary(buffer, file.name, resourceType);
+          mediaUrl = await uploadToCloudinary(buffer, file.name, resourceType, {
+            title: title.trim(),
+            category: category.trim(),
+            description: description.trim(),
+            isFeatured,
+            itemType: type,
+            itemId,
+            date,
+          });
         } catch (uploadError: any) {
           console.error("Cloudinary upload error:", uploadError);
           return NextResponse.json(
             { success: false, message: `Cloudinary अपलोड में त्रुटि: ${uploadError.message}` },
+            { status: 500 }
+          );
+        }
+      } else if (mediaUrl) {
+        // YouTube video URL — store as metadata in Cloudinary
+        const videoEmbedUrl = getYouTubeEmbedUrl(mediaUrl);
+        const thumbnailUrl = videoEmbedUrl.includes("youtube.com/embed/")
+          ? `https://img.youtube.com/vi/${videoEmbedUrl.split("/embed/")[1]?.split("?")[0]}/hqdefault.jpg`
+          : "";
+
+        try {
+          await storeYouTubeVideo({
+            title: title.trim(),
+            category: category.trim(),
+            description: description.trim(),
+            isFeatured,
+            itemId,
+            date,
+            mediaUrl,
+            videoEmbedUrl,
+            thumbnailUrl,
+          });
+        } catch (err: any) {
+          return NextResponse.json(
+            { success: false, message: `YouTube वीडियो सहेजने में त्रुटि: ${err.message}` },
             { status: 500 }
           );
         }
@@ -168,28 +293,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const items = readGallery();
-    const videoEmbedUrl = type === "video" ? getYouTubeEmbedUrl(mediaUrl) : "";
-    const newItem = {
-      id: `gal_${Date.now()}_${Math.random().toString(36).substring(2, 6)}`,
-      type,
-      title: title.trim(),
-      category: category.trim(),
-      mediaUrl,
-      thumbnailUrl:
-        type === "video" && videoEmbedUrl.includes("youtube.com/embed/")
-          ? `https://img.youtube.com/vi/${videoEmbedUrl.split("/embed/")[1]?.split("?")[0]}/hqdefault.jpg`
-          : mediaUrl,
-      videoEmbedUrl,
-      date: new Date().toISOString().split("T")[0],
-      description: description.trim(),
-      isFeatured,
-    };
-
-    items.unshift(newItem); // Add to top
-    writeGallery(items);
-
-    return NextResponse.json({ success: true, item: newItem });
+    return NextResponse.json({ success: true, message: "गैलरी आइटम सफलतापूर्वक जोड़ा गया!" });
   } catch (error: any) {
     console.error("Gallery upload error:", error);
     return NextResponse.json(
@@ -199,7 +303,7 @@ export async function POST(req: NextRequest) {
   }
 }
 
-// DELETE: Remove a gallery item
+// DELETE: Remove a gallery item from Cloudinary
 export async function DELETE(req: NextRequest) {
   try {
     const { searchParams } = new URL(req.url);
@@ -220,9 +324,13 @@ export async function DELETE(req: NextRequest) {
       );
     }
 
-    const items = readGallery();
-    const filtered = items.filter((item: any) => item.id !== id);
-    writeGallery(filtered);
+    // Delete from Cloudinary — try both image and video resource types
+    try {
+      await cloudinary.uploader.destroy(`pooja-gallery/${id}`, { resource_type: "image" });
+    } catch (_) {}
+    try {
+      await cloudinary.uploader.destroy(`pooja-gallery/${id}`, { resource_type: "video" });
+    } catch (_) {}
 
     return NextResponse.json({ success: true });
   } catch (error: any) {
