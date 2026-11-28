@@ -105,8 +105,11 @@ async function fetchGalleryFromCloudinary() {
           ? resource.secure_url.replace(/\.(mp4|mov|avi|webm)$/, ".jpg")
           : resource.secure_url;
 
+      // Use itemId from context, or strip folder prefix from public_id
+      const itemId = ctx.itemId || resource.public_id.replace("pooja-gallery/", "");
+
       return {
-        id: ctx.itemId || resource.public_id,
+        id: itemId,
         type: ctx.itemType || (isVideo ? "video" : "photo"),
         title: ctx.title || "वैदिक अनुष्ठान दर्शन",
         category: ctx.category || "महाकाल पूजा",
@@ -324,13 +327,17 @@ export async function DELETE(req: NextRequest) {
       );
     }
 
+    // Build the correct public_id — strip any existing prefix to avoid double-prefixing
+    const cleanId = id.replace(/^pooja-gallery\//, "");
+    const publicId = `pooja-gallery/${cleanId}`;
+
     // Delete from Cloudinary — try both image and video resource types
-    try {
-      await cloudinary.uploader.destroy(`pooja-gallery/${id}`, { resource_type: "image" });
-    } catch (_) {}
-    try {
-      await cloudinary.uploader.destroy(`pooja-gallery/${id}`, { resource_type: "video" });
-    } catch (_) {}
+    const imgResult = await cloudinary.uploader.destroy(publicId, { resource_type: "image" }).catch(() => ({ result: 'not found' }));
+    const vidResult = await cloudinary.uploader.destroy(publicId, { resource_type: "video" }).catch(() => ({ result: 'not found' }));
+
+    if (imgResult.result !== 'ok' && vidResult.result !== 'ok') {
+      console.warn("Item not found in Cloudinary:", publicId);
+    }
 
     return NextResponse.json({ success: true });
   } catch (error: any) {
