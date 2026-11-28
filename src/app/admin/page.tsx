@@ -59,7 +59,9 @@ export default function AdminPage() {
   const [galUrl, setGalUrl] = useState("");
   const [galFile, setGalFile] = useState<File | null>(null);
   const [galLoading, setGalLoading] = useState(false);
+  const [galProgress, setGalProgress] = useState<number>(0);
   const [galMsg, setGalMsg] = useState<{ type: "success" | "error"; text: string } | null>(null);
+  const fileInputRef = React.useRef<HTMLInputElement | null>(null);
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
@@ -102,40 +104,117 @@ export default function AdminPage() {
   const handleGalleryUpload = async (e: React.FormEvent) => {
     e.preventDefault();
     setGalLoading(true);
+    setGalProgress(0);
     setGalMsg(null);
 
     try {
-      const formData = new FormData();
-      formData.append("pin", pin);
-      formData.append("type", galType);
-      formData.append("title", galTitle.trim() || "वैदिक अनुष्ठान दर्शन");
-      formData.append("category", galCategory);
-      formData.append("isFeatured", "true");
-
       if (galFile) {
-        formData.append("file", galFile);
-      } else if (galUrl) {
-        formData.append("mediaUrl", galUrl);
-      } else {
-        setGalMsg({ type: "error", text: "कृपया फोटो/वीडियो फ़ाइल चुनें या URL दर्ज करें।" });
-        setGalLoading(false);
-        return;
-      }
+        const isVideoFile = galFile.type.startsWith("video/") || galType === "video";
+        const maxBytes = isVideoFile ? 100 * 1024 * 1024 : 10 * 1024 * 1024;
+        if (galFile.size > maxBytes) {
+          setGalMsg({
+            type: "error",
+            text: isVideoFile
+              ? "वीडियो फ़ाइल 100 MB से बड़ी है। कृपया छोटी फ़ाइल चुनें या YouTube लिंक डालें।"
+              : "फोटो फ़ाइल 10 MB से बड़ी है। कृपया छोटी फ़ाइल चुनें।",
+          });
+          setGalLoading(false);
+          return;
+        }
 
-      const res = await fetch("/api/gallery", {
-        method: "POST",
-        body: formData,
-      });
+        // 1. Get signed upload params from our API (bypasses Vercel 4.5 MB limit)
+        const signRes = await fetch("/api/gallery/sign", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            pin,
+            type: galType,
+            title: galTitle.trim() || "वैदिक अनुष्ठान दर्शन",
+            category: galCategory,
+            isFeatured: true,
+          }),
+        });
+        const signData = await signRes.json();
+        if (!signData.success) {
+          setGalMsg({ type: "error", text: signData.message || "अपलोड की अनुमति नहीं मिली।" });
+          setGalLoading(false);
+          return;
+        }
 
-      const data = await res.json();
-      if (data.success) {
+        // 2. Upload file directly to Cloudinary with progress tracking
+        const resourceType = isVideoFile ? "video" : "image";
+        const cloudForm = new FormData();
+        cloudForm.append("file", galFile);
+        cloudForm.append("api_key", signData.apiKey);
+        cloudForm.append("timestamp", String(signData.timestamp));
+        cloudForm.append("signature", signData.signature);
+        cloudForm.append("folder", signData.folder);
+        cloudForm.append("public_id", signData.publicId);
+        cloudForm.append("context", signData.context);
+        cloudForm.append("tags", signData.tags);
+
+        await new Promise<void>((resolve, reject) => {
+          const xhr = new XMLHttpRequest();
+          xhr.open(
+            "POST",
+            `https://api.cloudinary.com/v1_1/${signData.cloudName}/${resourceType}/upload`
+          );
+          xhr.upload.onprogress = (ev) => {
+            if (ev.lengthComputable) {
+              setGalProgress(Math.round((ev.loaded / ev.total) * 100));
+            }
+          };
+          xhr.onload = () => {
+            if (xhr.status >= 200 && xhr.status < 300) {
+              resolve();
+            } else {
+              try {
+                const errBody = JSON.parse(xhr.responseText);
+                reject(new Error(errBody.error?.message || "Cloudinary अपलोड विफल रहा।"));
+              } catch {
+                reject(new Error("Cloudinary अपलोड विफल रहा।"));
+              }
+            }
+          };
+          xhr.onerror = () => reject(new Error("नेटवर्क त्रुटि: अपलोड पूरा नहीं हो सका।"));
+          xhr.send(cloudForm);
+        });
+
         setGalMsg({ type: "success", text: "गैलरी आइटम सफलतापूर्वक जोड़ा गया!" });
         setGalTitle("");
         setGalUrl("");
         setGalFile(null);
+        setGalProgress(0);
+        if (fileInputRef.current) fileInputRef.current.value = "";
         await fetchGallery();
+      } else if (galUrl) {
+        const formData = new FormData();
+        formData.append("pin", pin);
+        formData.append("type", galType);
+        formData.append("title", galTitle.trim() || "वैदिक अनुष्ठान दर्शन");
+        formData.append("category", galCategory);
+        formData.append("isFeatured", "true");
+        formData.append("mediaUrl", galUrl);
+
+        const res = await fetch("/api/gallery", {
+          method: "POST",
+          body: formData,
+        });
+
+        const data = await res.json();
+        if (data.success) {
+          setGalMsg({ type: "success", text: "गैलरी आइटम सफलतापूर्वक जोड़ा गया!" });
+          setGalTitle("");
+          setGalUrl("");
+          setGalFile(null);
+          await fetchGallery();
+        } else {
+          setGalMsg({ type: "error", text: data.message || "अपलोड विफल रहा।" });
+        }
       } else {
-        setGalMsg({ type: "error", text: data.message || "अपलोड विफल रहा।" });
+        setGalMsg({ type: "error", text: "कृपया फोटो/वीडियो फ़ाइल चुनें या URL दर्ज करें।" });
+        setGalLoading(false);
+        return;
       }
     } catch (err: any) {
       setGalMsg({ type: "error", text: err.message || "त्रुटि आई।" });
@@ -487,6 +566,7 @@ export default function AdminPage() {
                       फ़ाइल अपलोड करें (Choose Image/Video)
                     </label>
                     <input
+                      ref={fileInputRef}
                       type="file"
                       accept={galType === "video" ? "video/*" : "image/*"}
                       onChange={(e) => setGalFile(e.target.files?.[0] || null)}
@@ -514,7 +594,11 @@ export default function AdminPage() {
                       className="w-full bg-vedic-saffron hover:bg-amber-600 text-white font-bold py-3 rounded-xl shadow transition flex items-center justify-center gap-2 text-sm"
                     >
                       {galLoading ? (
-                        <span>अपलोड हो रहा है...</span>
+                        <span>
+                          {galProgress > 0
+                            ? `अपलोड हो रहा है (${galProgress}%)...`
+                            : "अपलोड हो रहा है..."}
+                        </span>
                       ) : (
                         <>
                           <Plus className="w-4 h-4" />

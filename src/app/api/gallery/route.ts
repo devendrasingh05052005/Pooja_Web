@@ -102,7 +102,7 @@ async function fetchGalleryFromCloudinary() {
       const thumbnailUrl = isYoutube
         ? (ctx.thumbnailUrl || "")
         : isVideo
-          ? resource.secure_url.replace(/\.(mp4|mov|avi|webm)$/, ".jpg")
+          ? resource.secure_url.replace(/\.[^/.]+$/, ".jpg")
           : resource.secure_url;
 
       // Use itemId from context, or strip folder prefix from public_id
